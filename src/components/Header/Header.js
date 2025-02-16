@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ReactComponent as LogoNutep } from "../../assets/icons/logo-nutep.svg";
+import { Link } from "react-router-dom";
 
 const colorDark = "#072D4B";
 const colorGreen = "#48AF66";
@@ -92,11 +93,15 @@ const Header = () => {
           <NavList>
             <NavItem>Home</NavItem>
             <NavItemActive>Quem Somos</NavItemActive>
-            <a href="/unidades">
-              <NavItem>Unidades</NavItem>
-            </a>
+
+            <NavItem as={Link} to={`/unidades`}>
+              Unidades
+            </NavItem>
+
             <NavItem>Projetos</NavItem>
-            <NavItem>Notícias</NavItem>
+            <NavItem as={Link} to={`/news`}>
+              Notícias
+            </NavItem>
           </NavList>
           <DonateButton>Doações</DonateButton>
         </Nav>

@@ -1,5 +1,5 @@
-// src/components/UnidadeCard.js
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const green = "#48AF66";
@@ -68,16 +68,21 @@ const TourButton = styled.button`
   }
 `;
 
-const UnidadeCard = ({ nome, image, link }) => {
+const UnidadeCard = ({ id, nome, image, link }) => {
   return (
-    <CardContainer>
-      <CardImage src={image} alt={nome} />
-      <InfoBar>
-        <UnitTitle>{nome}</UnitTitle>
-        <SeeMore href={link}>Veja mais +</SeeMore>
-      </InfoBar>
-      <TourButton>Faça um tour virtual &gt;</TourButton>
-    </CardContainer>
+    <Link
+      to={`/unidade/${id}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+      <CardContainer>
+        <CardImage src={image} alt={nome} />
+        <InfoBar>
+          <UnitTitle>{nome}</UnitTitle>
+          <SeeMore href={link}>Veja mais +</SeeMore>
+        </InfoBar>
+        <TourButton>Faça um tour virtual &gt;</TourButton>
+      </CardContainer>
+    </Link>
   );
 };
 

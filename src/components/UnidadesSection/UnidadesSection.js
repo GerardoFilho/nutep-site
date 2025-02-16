@@ -31,8 +31,10 @@ const UnidadesSection = () => {
         {unidadesData.map((unidade) => (
           <CardWrapper key={unidade.id}>
             <UnidadeCard
+              key={unidade.id}
+              id={unidade.id}
               nome={unidade.nome}
-              image={unidade.image}
+              image={unidade.imagemDetalhe}
               link={unidade.link}
             />
           </CardWrapper>

@@ -1,15 +1,14 @@
-// src/components/ConhecaServicosSection.js
 import React from "react";
 import styled from "styled-components";
 
 const SectionContainer = styled.section`
-  background-color: #cff5d0; /* Verde-claro. Ajuste conforme desejar */
+  background-color: #cff5d0;
   text-align: center;
-  padding: 60px 20px; /* Espaçamento superior e inferior */
+  padding: 60px 20px;
 `;
 
 const SectionContent = styled.div`
-  max-width: 800px; /* Limite de largura do texto */
+  max-width: 800px;
   margin: 0 auto;
 `;
 
