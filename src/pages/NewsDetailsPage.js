@@ -68,7 +68,7 @@ const Teste = styled.div`
   contain: layout;
 `;
 
-const NewsDetails = () => {
+const NewsDetailsPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -100,4 +100,4 @@ const NewsDetails = () => {
   );
 };
 
-export default NewsDetails;
+export default NewsDetailsPage;

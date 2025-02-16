@@ -3,12 +3,12 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import "./style/globalStyle.css";
 import ServicosPage from "./pages/ServicosPage";
-import UnidadesAssistenciais from "./pages/UnidadesAssistenciais";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import NewsList from "./components/NewsList/NewsList";
 import { newsData } from "./data/newsData";
-import NewsDetails from "./pages/NewsDetails";
-import UnidadeDetails from "./pages/UnidadeDetails";
+import UnidadesAssistenciaisPage from "./pages/UnidadesAssistenciaisPage";
+import UnidadeDetailsPage from "./pages/UnidadeDetailsPage";
+import NewsDetailsPage from "./pages/NewsDetailsPage";
+import NewsListPage from "./pages/NewsListPage";
 
 const App = () => {
   return (
@@ -18,11 +18,11 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<ServicosPage />} />
-          <Route path="/news" element={<NewsList newsData={newsData} />} />
-          <Route path="/news/:id" element={<NewsDetails />} />
+          <Route path="/news" element={<NewsListPage newsData={newsData} />} />
+          <Route path="/news/:id" element={<NewsDetailsPage />} />
 
-          <Route path="/unidades" element={<UnidadesAssistenciais />} />
-          <Route path="/unidade/:id" element={<UnidadeDetails />} />
+          <Route path="/unidades" element={<UnidadesAssistenciaisPage />} />
+          <Route path="/unidade/:id" element={<UnidadeDetailsPage />} />
         </Routes>
 
         <Footer />

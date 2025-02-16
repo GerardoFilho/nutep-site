@@ -88,7 +88,7 @@ const MapIframe = styled.iframe`
   border: 0;
 `;
 
-const UnidadeDetails = () => {
+const UnidadeDetailsPage = () => {
   const { id } = useParams();
   const unidadeId = Number(id);
 
@@ -138,4 +138,4 @@ const UnidadeDetails = () => {
   );
 };
 
-export default UnidadeDetails;
+export default UnidadeDetailsPage;

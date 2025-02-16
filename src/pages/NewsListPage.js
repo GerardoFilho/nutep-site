@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import SearchBar from "../SearchBar/SearchBar";
-import NewsItem from "../NewsItem/NewsItem";
-import ConhecaServicosSection from "../ConhecaServicosSection/ConhecaServicosSection";
+import SearchBar from "../components/SearchBar/SearchBar";
+import NewsItem from "../components/NewsItem/NewsItem";
+import ConhecaServicosSection from "../components/ConhecaServicosSection/ConhecaServicosSection";
 
 const NewsListContainer = styled.section`
   width: 100%;
@@ -34,7 +34,7 @@ const LoadMoreButton = styled.button`
   }
 `;
 
-const NewsList = ({ newsData }) => {
+const NewsListPage = ({ newsData }) => {
   return (
     <>
       <ConhecaServicosSection
@@ -65,4 +65,4 @@ const NewsList = ({ newsData }) => {
   );
 };
 
-export default NewsList;
+export default NewsListPage;

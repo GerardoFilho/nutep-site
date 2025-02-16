@@ -3,7 +3,7 @@ import ConhecaServicosSection from "../components/ConhecaServicosSection/Conheca
 import UnidadesSection from "../components/UnidadesSection/UnidadesSection.js";
 import UnidadeApoioSection from "../components/UnidadeApoioSection/UnidadeApoioSection.js";
 
-const UnidadesAssistenciais = () => {
+const UnidadesAssistenciaisPage = () => {
   const descricao =
     "Ocupamos quatro Unidades Assistenciais, construídas e equipadas para promover nossas ações assistenciais específicas, e estamos trabalhando na construção de mais uma. Além delas, contamos também com uma Unidade de Apoio Administrativo. Todas se encontram no mesmo entorno onde surgimos, no bairro Rodolfo Teófilo.";
   return (
@@ -18,4 +18,4 @@ const UnidadesAssistenciais = () => {
   );
 };
 
-export default UnidadesAssistenciais;
+export default UnidadesAssistenciaisPage;
