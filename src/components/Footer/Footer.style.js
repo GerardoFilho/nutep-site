@@ -20,16 +20,24 @@ export const FooterContent = styled.div`
     grid-template-columns: 1fr;
 `;
 
-export const LogoColumn = styled.div`
+export const LogoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @media (max-width: 768px) {
+    flex-direction: row;
+    gap: 24px;
+  }
 `;
 
 export const StyledLogo = styled(LogoFooter)`
   width: 120px;
   height: auto;
   margin-bottom: 16px;
+  @media (max-width: 768px) {
+    display: flex;
+    width: 100%;
+  }
 `;
 
 export const LogoSubtitle = styled.p`
@@ -77,6 +85,10 @@ export const LinksList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const LinkItem = styled.li`

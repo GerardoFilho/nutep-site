@@ -10,6 +10,10 @@ export const CardContainer = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    width: 95%;
+    margin: 16px;
+  }
 `;
 
 export const CardImage = styled.img`

@@ -1,27 +1,39 @@
 import React from "react";
 import { FaInstagram } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa";
+import useIsDesktop from "../../hooks/useIsDesktop";
 import * as S from "./Footer.style";
 
 const Footer = () => {
+  const isDesktop = useIsDesktop(768);
   return (
     <S.FooterContainer>
       <S.FooterContent>
-        <S.LogoColumn>
+        <S.LogoContainer>
           <S.StyledLogo />
-          <S.LogoSubtitle>
-            Núcleo de Tratamento <br /> e Estimulação Precoce
-          </S.LogoSubtitle>
-        </S.LogoColumn>
+          {!isDesktop && (
+            <div>
+              <S.ColumnTitle>Nutep</S.ColumnTitle>
+              <S.TextParagraph>
+                O NUTEP é uma instituição que presta assistência especializada a
+                crianças e adolescentes na área do neurodesenvolvimento, sediada
+                em Fortaleza, Ceará.
+              </S.TextParagraph>
+            </div>
+          )}
+        </S.LogoContainer>
 
         <div>
-          <S.ColumnTitle>Nutep</S.ColumnTitle>
-          <S.TextParagraph>
-            O NUTEP é uma instituição que presta assistência especializada a
-            crianças e adolescentes na área do neurodesenvolvimento, sediada em
-            Fortaleza, Ceará.
-          </S.TextParagraph>
-
+          {isDesktop && (
+            <>
+              <S.ColumnTitle>Nutep</S.ColumnTitle>
+              <S.TextParagraph>
+                O NUTEP é uma instituição que presta assistência especializada a
+                crianças e adolescentes na área do neurodesenvolvimento, sediada
+                em Fortaleza, Ceará.
+              </S.TextParagraph>
+            </>
+          )}
           <S.SocialsWrapper>
             <S.SocialTitle>Redes Sociais</S.SocialTitle>
             <S.SocialLink

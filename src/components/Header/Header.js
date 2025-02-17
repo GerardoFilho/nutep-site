@@ -36,7 +36,9 @@ const Header = () => {
 
         <S.Nav className={menuOpen ? "open" : ""}>
           <S.NavList>
-            <S.NavItem onClick={handleLinkClick}>Home</S.NavItem>
+            <S.NavItem as={Link} to={"/"} onClick={handleLinkClick}>
+              Home
+            </S.NavItem>
             <S.NavItemActive onClick={handleLinkClick}>
               Quem Somos
             </S.NavItemActive>
@@ -44,9 +46,12 @@ const Header = () => {
             <S.NavItem as={Link} to={`/unidades`} onClick={handleLinkClick}>
               Unidades
             </S.NavItem>
+            <S.NavItem as={Link} to={`/servicos`} onClick={handleLinkClick}>
+              Serviços
+            </S.NavItem>
 
             <S.NavItem onClick={handleLinkClick}>Projetos</S.NavItem>
-            <S.NavItem as={Link} to={`/news`} onClick={handleLinkClick}>
+            <S.NavItem as={Link} to={`/noticias`} onClick={handleLinkClick}>
               Notícias
             </S.NavItem>
             <S.NavItem onClick={handleLinkClick}>

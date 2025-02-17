@@ -11,10 +11,16 @@ export const NewsItemContainer = styled.div`
   margin-bottom: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid ${dividerGreen};
+  width: 100%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
 `;
 
 export const NewsImagePlaceholder = styled.div`
-  width: 550px;
+  width: 100%;
+  max-width: 550px;
   height: 300px;
   background-color: ${lightGray};
   border-radius: 8px;
@@ -34,6 +40,9 @@ export const NewsCategory = styled.p`
   color: ${green};
   margin-bottom: 20px;
   font-weight: 600;
+  @media (max-width: 768px) {
+    margin-top: 12px;
+  }
 `;
 
 export const NewsTitle = styled.h3`
@@ -42,6 +51,9 @@ export const NewsTitle = styled.h3`
   color: ${green};
   margin-bottom: 20px;
   font-weight: 700;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const NewsDescription = styled.p`

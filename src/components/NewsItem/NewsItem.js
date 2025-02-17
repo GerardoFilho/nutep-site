@@ -5,7 +5,7 @@ import * as S from "./NewsItem.style";
 const NewsItem = ({ id, category, title, content, time }) => {
   return (
     <>
-      <S.NewsItemContainer as={Link} to={`/news/${id}`}>
+      <S.NewsItemContainer as={Link} to={`/noticias/${id}`}>
         <S.NewsImagePlaceholder />
         <S.NewsContent>
           <S.NewsCategory>{category}</S.NewsCategory>
