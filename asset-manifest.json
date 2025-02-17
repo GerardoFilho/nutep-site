@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/GerardoFilho/nutep-site/static/css/main.5c15334e.css",
+    "main.js": "/GerardoFilho/nutep-site/static/js/main.202918c9.js",
+    "static/media/Unidade-44.png": "/GerardoFilho/nutep-site/static/media/Unidade-44.e5575016ea0750521bfc.png",
+    "static/media/Unidade-11.png": "/GerardoFilho/nutep-site/static/media/Unidade-11.35d3909183b97752dd96.png",
+    "static/media/Unidade-33.png": "/GerardoFilho/nutep-site/static/media/Unidade-33.4e47003297ccaf8345a3.png",
+    "static/media/Unidade-22.png": "/GerardoFilho/nutep-site/static/media/Unidade-22.93cf7d5050381b327bac.png",
+    "static/media/logo-nutep.svg": "/GerardoFilho/nutep-site/static/media/logo-nutep.9c9a0b7ee65fde8db12db140787fbec1.svg",
+    "static/media/logo-footer.svg": "/GerardoFilho/nutep-site/static/media/logo-footer.457cf1d7d7935d4f736f0688400b0f18.svg",
+    "static/media/Ortopedica-1.png": "/GerardoFilho/nutep-site/static/media/Ortopedica-1.4d8b99bb63e1aed8c1f1.png",
+    "static/media/Reabilitacao-2.png": "/GerardoFilho/nutep-site/static/media/Reabilitacao-2.c315c772452dd08e15c4.png",
+    "static/media/Reabilitacao-3.png": "/GerardoFilho/nutep-site/static/media/Reabilitacao-3.d4c4f28e0eb8f3292e31.png",
+    "static/media/Medico-3.png": "/GerardoFilho/nutep-site/static/media/Medico-3.d502e05c54413b92e7b9.png",
+    "static/media/Reabilitacao-6.png": "/GerardoFilho/nutep-site/static/media/Reabilitacao-6.56173a69a0418814b870.png",
+    "static/media/Assistencia-2.png": "/GerardoFilho/nutep-site/static/media/Assistencia-2.31ec28bfd9dd7eadfd5b.png",
+    "static/media/Medico-2.png": "/GerardoFilho/nutep-site/static/media/Medico-2.32110057cbf74d8335a3.png",
+    "static/media/Medico-4.png": "/GerardoFilho/nutep-site/static/media/Medico-4.535dda4d8d0c61b8806c.png",
+    "static/media/Reabilitacao-1.png": "/GerardoFilho/nutep-site/static/media/Reabilitacao-1.0c2c56083682ffa9df03.png",
+    "static/media/Reabilitacao-4.png": "/GerardoFilho/nutep-site/static/media/Reabilitacao-4.a9390bbc487716553bd7.png",
+    "static/media/Assistencia-1.png": "/GerardoFilho/nutep-site/static/media/Assistencia-1.511097e29298b9bf7fce.png",
+    "static/media/Reabilitacao-5.png": "/GerardoFilho/nutep-site/static/media/Reabilitacao-5.287e6f882f904fc3e3d6.png",
+    "static/media/Medico-1.png": "/GerardoFilho/nutep-site/static/media/Medico-1.5b61b8661b15252e61d1.png",
+    "static/media/wppPerfil.png": "/GerardoFilho/nutep-site/static/media/wppPerfil.819d302e36df988eb362.png",
+    "static/media/slick.svg": "/GerardoFilho/nutep-site/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/GerardoFilho/nutep-site/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/GerardoFilho/nutep-site/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/GerardoFilho/nutep-site/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/GerardoFilho/nutep-site/index.html",
+    "main.5c15334e.css.map": "/GerardoFilho/nutep-site/static/css/main.5c15334e.css.map",
+    "main.202918c9.js.map": "/GerardoFilho/nutep-site/static/js/main.202918c9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c15334e.css",
+    "static/js/main.202918c9.js"
+  ]
+}
