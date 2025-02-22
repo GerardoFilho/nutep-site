@@ -9,6 +9,10 @@ import UnidadeDetailsPage from "./pages/UnidadeDetailsPage";
 import NewsDetailsPage from "./pages/NewsDetailsPage";
 import NewsListPage from "./pages/NewsListPage";
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import OrganogramaPage from "./pages/OrganogramaPage";
+import ProjetosPage from "./pages/ProjetosPage";
+import DoacoesPage from "./pages/DoacoesPage";
 
 const App = () => {
   return (
@@ -18,7 +22,10 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/quem-somos" element={<AboutPage />} />
           <Route path="/servicos" element={<ServicosPage />} />
+          <Route path="/projetos" element={<ProjetosPage />} />
+          <Route path="/organograma" element={<OrganogramaPage />} />
           <Route
             path="/noticias"
             element={<NewsListPage newsData={newsData} />}
@@ -27,6 +34,7 @@ const App = () => {
 
           <Route path="/unidades" element={<UnidadesAssistenciaisPage />} />
           <Route path="/unidade/:id" element={<UnidadeDetailsPage />} />
+          <Route path="/doacoes" element={<DoacoesPage />} />
         </Routes>
 
         <Footer />

@@ -19,3 +19,8 @@ ul,
 li {
   list-style: none;
 }
+
+.slick-prev:before,
+.slick-next:before {
+  content: none !important;
+}

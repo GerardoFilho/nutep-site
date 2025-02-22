@@ -39,7 +39,11 @@ const Header = () => {
             <S.NavItem as={Link} to={"/"} onClick={handleLinkClick}>
               Home
             </S.NavItem>
-            <S.NavItemActive onClick={handleLinkClick}>
+            <S.NavItemActive
+              as={Link}
+              to={"/quem-somos"}
+              onClick={handleLinkClick}
+            >
               Quem Somos
             </S.NavItemActive>
 
@@ -50,11 +54,13 @@ const Header = () => {
               Serviços
             </S.NavItem>
 
-            <S.NavItem onClick={handleLinkClick}>Projetos</S.NavItem>
+            <S.NavItem as={Link} to={`/projetos`} onClick={handleLinkClick}>
+              Projetos
+            </S.NavItem>
             <S.NavItem as={Link} to={`/noticias`} onClick={handleLinkClick}>
               Notícias
             </S.NavItem>
-            <S.NavItem onClick={handleLinkClick}>
+            <S.NavItem as={Link} to={`/doacoes`} onClick={handleLinkClick}>
               <S.DonateButton>Doações</S.DonateButton>
             </S.NavItem>
           </S.NavList>

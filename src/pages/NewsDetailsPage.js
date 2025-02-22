@@ -63,7 +63,7 @@ const Content = styled.div`
   padding: 24px 0;
 `;
 
-const Teste = styled.div`
+const Container = styled.div`
   margin-top: 0px;
   contain: layout;
 `;
@@ -87,10 +87,10 @@ const NewsDetailsPage = () => {
           <Title>{news.title}</Title>
           <Time>{news.time}</Time>
         </TextTopSection>
-        <Teste>
+        <Container>
           <ImagePlaceholder />
           <Caption>Legenda da foto. S/A.</Caption>
-        </Teste>
+        </Container>
       </TopSection>
 
       <DetailContainer>

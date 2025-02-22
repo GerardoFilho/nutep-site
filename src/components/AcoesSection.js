@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import AcaoImg1 from "../assets/images/Assistencia-1.png";
-import AcaoImg2 from "../assets/images/Assistencia-1.png";
-import AcaoImg3 from "../assets/images/Assistencia-1.png";
+import Slider from "react-slick";
+import RightIcon from "../assets/icons/right-arrow.png";
+import LeftIcon from "../assets/icons/left-arrow.png";
+import AcaoImg1 from "../assets/images/acoes1.png";
+import AcaoImg2 from "../assets/images/acoes2.png";
+import AcaoImg3 from "../assets/images/acoes3.png";
 import AcaoImg4 from "../assets/images/Assistencia-1.png";
 import AcaoImg5 from "../assets/images/Assistencia-1.png";
 import AcaoImg6 from "../assets/images/Assistencia-1.png";
@@ -69,8 +72,88 @@ const InstaLink = styled.a`
     opacity: 0.8;
   }
 `;
+const ArrowButton = styled.div`
+  font-size: 24px;
+  color: #48af66;
+  cursor: pointer;
+  &:hover {
+    color: #3da15a;
+  }
+`;
+
+const ArrowIcon = styled.img`
+  width: 30px;
+`;
+
+/* Container do carrossel */
+const CarouselWrapper = styled.div`
+  position: relative;
+  margin-bottom: 24px;
+`;
+
+/* Cada "slide" ou "card" da imagem */
+const Card = styled.div`
+  padding: 10px;
+  display: flex !important; /* Para alinhar o conteúdo no slick-slide */
+  justify-content: center;
+`;
+
+// Left arrow
+const PrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <ArrowButton
+      className={className}
+      style={{ ...style, left: "0", zIndex: 2 }}
+      onClick={onClick}
+    >
+      <ArrowIcon src={LeftIcon} />
+    </ArrowButton>
+  );
+};
+
+// Right arrow
+const NextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <ArrowButton
+      className={className}
+      style={{ ...style, right: "0", zIndex: 2 }}
+      onClick={onClick}
+    >
+      <ArrowIcon src={RightIcon} />
+    </ArrowButton>
+  );
+};
 
 const AcoesSection = () => {
+  const imagens = [AcaoImg1, AcaoImg2, AcaoImg3, AcaoImg4, AcaoImg5];
+
+  // Configurações do react-slick
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3, // exibir 3 por vez
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 768, // mobile
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 1024, // tablet
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  };
+
   return (
     <AcoesWrapper>
       <ContentContainer>
@@ -79,17 +162,15 @@ const AcoesSection = () => {
           Siga-nos pelas redes sociais e fique por dentro da nossa jornada
         </Subtitle>
 
-        <GridContainer>
-          <AcaoImage src={AcaoImg1} alt="Ação 1" />
-          <AcaoImage src={AcaoImg2} alt="Ação 2" />
-          <AcaoImage src={AcaoImg3} alt="Ação 3" />
-          <AcaoImage src={AcaoImg4} alt="Ação 4" />
-          <AcaoImage src={AcaoImg5} alt="Ação 5" />
-          <AcaoImage src={AcaoImg6} alt="Ação 6" />
-          <AcaoImage src={AcaoImg7} alt="Ação 7" />
-          <AcaoImage src={AcaoImg8} alt="Ação 8" />
-          <AcaoImage src={AcaoImg9} alt="Ação 9" />
-        </GridContainer>
+        <CarouselWrapper>
+          <Slider {...settings}>
+            {imagens.map((img, index) => (
+              <Card key={index}>
+                <AcaoImage src={img} alt={`Ação ${index + 1}`} />
+              </Card>
+            ))}
+          </Slider>
+        </CarouselWrapper>
       </ContentContainer>
       <InstaLink
         href="https://instagram.com/nutepnarede"

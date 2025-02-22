@@ -9,6 +9,9 @@ export const HeaderContainer = styled.header`
   width: 100%;
   background-color: ${colorWhite};
   border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 `;
 
 export const HeaderContent = styled.div`
