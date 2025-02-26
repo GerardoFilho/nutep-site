@@ -1,37 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
-// Exemplo de imagens (substitua pelos caminhos reais):
 import SobreImg from "../assets/images/Assistencia-1.png";
-import VideoThumb from "../assets/images/Assistencia-2.png";
 import Video from "../assets/nutepVideoReduzido.mp4";
 import VideoOrImageSection from "../components/VideoOrImageSection";
 import FamiliaImg1 from "../assets/images/Assistencia-1.png";
 import FamiliaImg2 from "../assets/images/Assistencia-1.png";
 import FamiliaImg3 from "../assets/images/Assistencia-1.png";
-import MapaBrasil from "../assets/images/Assistencia-1.png";
-import PredioAcademico from "../assets/images/Assistencia-1.png";
+import MapaBrasil from "../assets/images/Brasil.png";
+import PredioAcademico from "../assets/images/Programas-academicos.png";
 import RightIcon from "../assets/icons/right-arrow.png";
 import LeftIcon from "../assets/icons/left-arrow.png";
 import Slider from "react-slick";
-
-/* ========= SEÇÃO 'SOBRE NÓS' ========= */
+import CirclesBackground from "../components/CirclesBackground";
 
 const SobreWrapper = styled.section`
-  background: linear-gradient(135deg, #68ffc1, #07ed4c);
+  background: linear-gradient(
+    135deg,
+    rgba(224, 255, 235, 0.8),
+    rgba(255, 255, 255, 0.8)
+  );
   padding: 40px;
   border-radius: 16px;
   max-width: 1200px;
-  margin: 40px auto; /* espaço acima e centralização */
+  margin: 40px auto;
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
   align-items: center;
-  color: #072d4b; /* cor do texto do título */
+  color: #072d4b;
+  position: relative;
+  z-index: 999;
 `;
 
 const TextoSobre = styled.div`
-  flex: 1; /* texto ocupa espaço */
+  flex: 1;
   min-width: 300px;
 `;
 
@@ -39,7 +42,7 @@ const TituloSobre = styled.h2`
   font-size: 24px;
   text-transform: uppercase;
   margin-bottom: 16px;
-  color: #072d4b; /* para destacar */
+  color: #09aa64;
 `;
 
 const ParagrafoSobre = styled.p`
@@ -58,23 +61,21 @@ const ImagemSobreWrapper = styled.div`
 
 const ImagemSobre = styled.img`
   width: 100%;
-  max-width: 400px; /* ajuste conforme desejar */
+  max-width: 400px;
   border-radius: 8px;
   object-fit: cover;
 `;
 
-/* ========= SEÇÃO 'CONHEÇA MAIS DO NUTEP' ========= */
-
 const ConhecaWrapper = styled.section`
   padding: 40px 20px;
   max-width: 1200px;
-  margin: 40px auto; /* espaçamento e centralização */
+  margin: 40px auto;
   text-align: center;
 `;
 
 const TituloConheca = styled.h3`
   font-size: 24px;
-  color: #072d4b;
+  color: #09aa64;
   text-transform: uppercase;
   margin-bottom: 16px;
 `;
@@ -98,12 +99,6 @@ const VideoWrapper = styled.div`
   position: relative;
 `;
 
-const ThumbVideo = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
 const Transcricao = styled.div`
   max-width: 800px;
   margin: 24px auto 0;
@@ -113,7 +108,7 @@ const Transcricao = styled.div`
 const LabelTranscricao = styled.span`
   font-size: 14px;
   font-weight: 600;
-  color: #072d4b;
+  color: #09aa64;
 `;
 
 const TextoTranscricao = styled.p`
@@ -122,11 +117,17 @@ const TextoTranscricao = styled.p`
   margin: 8px 0;
 `;
 
+const DivTranscricao = styled.div`
+  background-color: #ddffe0;
+  padding: 16px;
+  border-radius: 16px;
+`;
+
 const LinkTranscricao = styled.a`
   display: inline-block;
   margin-top: 8px;
   font-size: 14px;
-  color: #48af66;
+  color: #09aa64;
   text-decoration: none;
   font-weight: 600;
 
@@ -135,53 +136,60 @@ const LinkTranscricao = styled.a`
   }
 `;
 
-// ============ NOVAS SEÇÕES ============
-
-// Seção contendo “Nossos Valores”, “Onde Estamos” e “Programas Acadêmicos”
 const InformacoesWrapper = styled.section`
   padding: 40px 20px;
   max-width: 1200px;
   margin: 40px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 colunas */
+  display: flex;
   gap: 32px;
+  flex-direction: column;
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; /* empilha no mobile */
   }
 `;
 
-// Card genérico para cada bloco
 const InfoCard = styled.div`
   background-color: #fff;
   border-radius: 8px;
   padding: 24px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+`;
+
+const CardSection = styled.div`
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 `;
 
 const InfoTitle = styled.h4`
-  font-size: 20px;
-  color: #072d4b;
+  font-size: 28px;
+  color: #09aa64;
   text-transform: uppercase;
   margin-bottom: 16px;
 `;
+const BoldText = styled.b`
+  color: #09aa64;
+`;
 
 const InfoText = styled.p`
-  font-size: 16px;
+  font-size: 20px;
   color: #333;
   line-height: 1.5;
 `;
 
-// Para bloco com imagem
 const ImageWrapper = styled.div`
   margin-top: 16px;
   text-align: center;
   img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
     border-radius: 8px;
   }
 `;
 
-// Seção “Vida nova para as crianças e suas famílias”
 const VidaNovaWrapper = styled.section`
   background-color: #cff5d0;
   padding: 40px 20px;
@@ -190,27 +198,9 @@ const VidaNovaWrapper = styled.section`
 
 const VidaNovaTitle = styled.h3`
   font-size: 24px;
-  color: #072d4b;
+  color: #09aa64;
   text-transform: uppercase;
   margin-bottom: 16px;
-`;
-
-// Grid de imagens
-const FamiliaGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 24px;
-`;
-
-const FamiliaCard = styled.div`
-  width: 220px;
-  height: 160px;
-  background-color: #fff;
-  border: 2px solid #48af66;
-  border-radius: 8px;
-  overflow: hidden;
 `;
 
 const FamiliaImgStyled = styled.img`
@@ -218,7 +208,7 @@ const FamiliaImgStyled = styled.img`
   max-width: 300px;
   height: 300px;
   object-fit: cover;
-  border: 2px solid #48af66;
+  border: 2px solid #09aa64;
   border-radius: 8px;
 `;
 
@@ -226,9 +216,10 @@ const CarouselWrapper = styled.div`
   justify-self: center;
   margin-bottom: 24px;
   max-width: 1200px;
+  @media (max-width: 768px) {
+    max-width: 400px;
+  }
 `;
-
-// Cada slide
 
 const SlideCard = styled.div`
   padding: 10px;
@@ -238,10 +229,14 @@ const SlideCard = styled.div`
 
 const ArrowButton = styled.div`
   font-size: 24px;
-  color: #48af66;
+  color: #09aa64;
   cursor: pointer;
   &:hover {
     color: #3da15a;
+  }
+  @media (max-width: 768px) {
+    ${(props) => props.side === "left" && "left: 8px;"}
+    ${(props) => props.side === "right" && "right: 20px;"}
   }
 `;
 
@@ -249,55 +244,46 @@ const ArrowIcon = styled.img`
   width: 30px;
 `;
 
-// Left arrow
 const PrevArrow = (props) => {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
-    <ArrowButton
-      className={className}
-      style={{ ...style, left: "0", zIndex: 2 }}
-      onClick={onClick}
-    >
+    <ArrowButton className={className} onClick={onClick} side="left">
       <ArrowIcon src={LeftIcon} />
     </ArrowButton>
   );
 };
 
-// Right arrow
 const NextArrow = (props) => {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
-    <ArrowButton
-      className={className}
-      style={{ ...style, right: "0", zIndex: 2 }}
-      onClick={onClick}
-    >
+    <ArrowButton className={className} onClick={onClick} side="right">
       <ArrowIcon src={RightIcon} />
     </ArrowButton>
   );
 };
 
-/* ========= COMPONENTE PRINCIPAL ========== */
-
 function AboutPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const images = [FamiliaImg1, FamiliaImg2, FamiliaImg3];
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // exibir 3 por vez
+    slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 768, // mobile
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
         },
       },
       {
-        breakpoint: 1024, // tablet
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
         },
@@ -306,29 +292,29 @@ function AboutPage() {
   };
   return (
     <>
-      {/* Seção Sobre Nós */}
-      <SobreWrapper>
-        <TextoSobre>
-          <TituloSobre>Sobre Nós</TituloSobre>
-          <ParagrafoSobre>
-            Sediados em Fortaleza, capital do Ceará, desde 1987 temos como
-            missão promover assistência contínua a crianças e adolescentes que
-            enfrentam desafios na área do desenvolvimento. Prestamos assistência
-            também às famílias, reconhecendo a importância da colaboração delas
-            nas conquistas desejadas por todos nós.
-          </ParagrafoSobre>
-          <ParagrafoSobre>
-            Como instituição filantrópica que detém certificado de Entidade
-            Beneficente de Assistência Social – CEBAS-Saúde, mantemos convênio
-            com o Sistema Único de Saúde – SUS.
-          </ParagrafoSobre>
-        </TextoSobre>
-        <ImagemSobreWrapper>
-          <ImagemSobre src={SobreImg} alt="Sobre Nutep" />
-        </ImagemSobreWrapper>
-      </SobreWrapper>
+      <CirclesBackground>
+        <SobreWrapper>
+          <TextoSobre>
+            <TituloSobre>Sobre Nós</TituloSobre>
+            <ParagrafoSobre>
+              Sediados em Fortaleza, capital do Ceará, desde 1987 temos como
+              missão promover assistência contínua a crianças e adolescentes que
+              enfrentam desafios na área do desenvolvimento. Prestamos
+              assistência também às famílias, reconhecendo a importância da
+              colaboração delas nas conquistas desejadas por todos nós.
+            </ParagrafoSobre>
+            <ParagrafoSobre>
+              Como instituição filantrópica que detém certificado de Entidade
+              Beneficente de Assistência Social – CEBAS-Saúde, mantemos convênio
+              com o Sistema Único de Saúde – SUS.
+            </ParagrafoSobre>
+          </TextoSobre>
+          <ImagemSobreWrapper>
+            <ImagemSobre src={SobreImg} alt="Sobre Nutep" />
+          </ImagemSobreWrapper>
+        </SobreWrapper>
+      </CirclesBackground>
 
-      {/* Seção Conheça um pouco mais do Nutep */}
       <ConhecaWrapper>
         <TituloConheca>Conheça um pouco mais do Nutep</TituloConheca>
         <ParagrafoConheca>
@@ -339,77 +325,75 @@ function AboutPage() {
         </ParagrafoConheca>
 
         <VideoWrapper>
-          {/* Exemplo de thumb do vídeo */}
-          {/* Seção com imagem estática */}
-          {/* <VideoOrImageSection
-            mediaType="image"
-            mediaSrc={VideoThumb}
-            title="Conheça um pouco mais do Nutep"
-            description="Prestamos assistência permanente..."
-          /> */}
-
-          {/* Seção com vídeo HTML5 local (exemplo .mp4 na pasta public) */}
           <VideoOrImageSection mediaType="video" mediaSrc={Video} />
-
-          {/* Seção com embed do YouTube */}
-          {/* <VideoOrImageSection
-            mediaType="youtube"
-            mediaSrc="https://www.youtube.com/embed/xYth5J7TO9U"
-          /> */}
         </VideoWrapper>
 
         <Transcricao>
           <LabelTranscricao>Transcrição:</LabelTranscricao>
-          <TextoTranscricao>
-            [BT - 1987] o Nutep vinha abrindo suas tendas solidárias para
-            promover ...
-          </TextoTranscricao>
+          <DivTranscricao>
+            <TextoTranscricao>
+              [BT - 1987] o Nutep vinha abrindo suas tendas solidárias para
+              promover ...
+            </TextoTranscricao>
+          </DivTranscricao>
           <LinkTranscricao href="#">
             Ler transcrição completa &gt;
           </LinkTranscricao>
         </Transcricao>
       </ConhecaWrapper>
-      {/* SEÇÃO VALORES, ONDE ESTAMOS, PROGRAMAS ACADÊMICOS */}
       <InformacoesWrapper>
-        {/* NOSSOS VALORES */}
         <InfoCard>
-          <InfoTitle>Nossos Valores</InfoTitle>
-          <InfoText>
-            Orientam todas nossas ações: respeito, compaixão, solidariedade,
-            inclusão e transparência. Buscamos promover um mundo mais solidário,
-            menos desigual.
-          </InfoText>
+          <CardSection>
+            <InfoTitle>Nossos Valores</InfoTitle>
+            <InfoText>
+              Orientam todas nossas ações: respeito, compaixão, solidariedade,
+              inclusão e transparência. Buscamos promover um mundo mais
+              solidário, menos desigual.
+            </InfoText>
+          </CardSection>
         </InfoCard>
 
-        {/* ONDE ESTAMOS */}
         <InfoCard>
-          <InfoTitle>Onde Estamos</InfoTitle>
-          <InfoText>
-            Em Fortaleza, somos uma das únicas referências em atendimento
-            especializado em reabilitação infantil. Nosso trabalho se estende a
-            outras regiões através de parcerias.
-          </InfoText>
           <ImageWrapper>
             <img src={MapaBrasil} alt="Mapa do Brasil destacando CE" />
           </ImageWrapper>
+          <CardSection>
+            <InfoTitle>Onde Estamos</InfoTitle>
+            <InfoText>
+              Em Fortaleza, somos um dos únicos serviços de intervenção precoce,
+              habilitação e reabilitação de crianças e adolescentes capacitado a
+              atender todos os transtornos do desenvolvimento, por meio do SUS.
+            </InfoText>
+            <br />
+            <InfoText>
+              Contamos também com a única oficina ortopédica credenciada pelo
+              Ministério da Saúde no Estado do Ceará, para oferta de recursos de
+              tecnologia assistiva.
+            </InfoText>
+          </CardSection>
         </InfoCard>
 
-        {/* PROGRAMAS ACADÊMICOS */}
-        <InfoCard style={{ gridColumn: "1 / span 2" }}>
-          {/* aqui ocupamos 2 colunas, se quisermos (depende do design) */}
-          <InfoTitle>Programas Acadêmicos</InfoTitle>
-          <InfoText>
-            O Nutep e a Região do Entorno da Universidade Federal do Ceará
-            oferecem oportunidades para profissionais participarem de estágios e
-            pesquisas em diversas áreas de saúde.
-          </InfoText>
+        <InfoCard>
+          <CardSection>
+            <InfoTitle>Programas Acadêmicos</InfoTitle>
+            <InfoText>
+              O Nutep é um Projeto de Extensão da Universidade Federal do Ceará
+              (UFC) desenvolvendo parcerias em diversos projetos acadêmicos.
+            </InfoText>
+            <InfoText>
+              É também referência no Estado do Ceará para{" "}
+              <BoldText>formação profissional</BoldText>, através dos programas
+              de capacitação ofertados pelo Centro de Estudos. É ainda um{" "}
+              <BoldText>campo de treinamento</BoldText> para alunos de graduação
+              e pós-graduação.
+            </InfoText>
+          </CardSection>
           <ImageWrapper>
             <img src={PredioAcademico} alt="Prédio Acadêmico" />
           </ImageWrapper>
         </InfoCard>
       </InformacoesWrapper>
 
-      {/* SEÇÃO VIDA NOVA */}
       <VidaNovaWrapper>
         <VidaNovaTitle>
           Vida nova para as crianças e suas famílias

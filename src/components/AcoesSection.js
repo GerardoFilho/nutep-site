@@ -9,10 +9,6 @@ import AcaoImg2 from "../assets/images/acoes2.png";
 import AcaoImg3 from "../assets/images/acoes3.png";
 import AcaoImg4 from "../assets/images/Assistencia-1.png";
 import AcaoImg5 from "../assets/images/Assistencia-1.png";
-import AcaoImg6 from "../assets/images/Assistencia-1.png";
-import AcaoImg7 from "../assets/images/Assistencia-1.png";
-import AcaoImg8 from "../assets/images/Assistencia-1.png";
-import AcaoImg9 from "../assets/images/Assistencia-1.png";
 
 const AcoesWrapper = styled.section`
   background-color: #e6f7f0;
@@ -40,15 +36,6 @@ const Subtitle = styled.p`
   font-size: 14px;
   color: #333;
   margin-bottom: 32px;
-`;
-
-const GridContainer = styled.div`
-  display: inline-grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
 `;
 
 const AcaoImage = styled.img`
@@ -85,20 +72,17 @@ const ArrowIcon = styled.img`
   width: 30px;
 `;
 
-/* Container do carrossel */
 const CarouselWrapper = styled.div`
   position: relative;
   margin-bottom: 24px;
 `;
 
-/* Cada "slide" ou "card" da imagem */
 const Card = styled.div`
   padding: 10px;
   display: flex !important; /* Para alinhar o conteúdo no slick-slide */
   justify-content: center;
 `;
 
-// Left arrow
 const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
@@ -112,7 +96,6 @@ const PrevArrow = (props) => {
   );
 };
 
-// Right arrow
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
@@ -129,24 +112,23 @@ const NextArrow = (props) => {
 const AcoesSection = () => {
   const imagens = [AcaoImg1, AcaoImg2, AcaoImg3, AcaoImg4, AcaoImg5];
 
-  // Configurações do react-slick
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // exibir 3 por vez
+    slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 768, // mobile
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
         },
       },
       {
-        breakpoint: 1024, // tablet
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
         },

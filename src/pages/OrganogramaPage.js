@@ -1,8 +1,5 @@
-// src/pages/OrganogramaPage.js
 import React from "react";
 import styled from "styled-components";
-
-// Exemplo de imagens (substitua pelos caminhos reais)
 import FamiliaImg from "../assets/images/Medico-1.png";
 import OrganogramaImg from "../assets/images/Organograma.png";
 import EquipeImg1 from "../assets/images/Reabilitacao-1.png";
@@ -12,10 +9,14 @@ import RightIcon from "../assets/icons/right-arrow.png";
 import LeftIcon from "../assets/icons/left-arrow.png";
 
 import Slider from "react-slick";
+import CirclesBackground from "../components/CirclesBackground";
 
-/* ========== SEÇÃO “NOSSA FAMÍLIA” ========== */
 const FamiliaSection = styled.section`
-  background: linear-gradient(135deg, #68ffc1, #07ed4c);
+  background: linear-gradient(
+    135deg,
+    rgba(224, 255, 235, 0.8),
+    rgba(255, 255, 255, 0.8)
+  );
   padding: 60px 20px;
   border-radius: 16px;
   max-width: 1200px;
@@ -24,7 +25,9 @@ const FamiliaSection = styled.section`
   flex-wrap: wrap;
   gap: 24px;
   align-items: center;
-  color: #072d4b;
+  color: #09aa64;
+  position: relative;
+  z-index: 999;
 `;
 
 const FamiliaTextBlock = styled.div`
@@ -58,7 +61,6 @@ const FamiliaImage = styled.img`
   object-fit: cover;
 `;
 
-/* ========== SEÇÃO “ORGANOGRAMA INSTITUCIONAL” ========== */
 const OrganogramaSection = styled.section`
   padding: 40px 20px;
   text-align: center;
@@ -68,7 +70,7 @@ const OrganogramaSection = styled.section`
 
 const OrganogramaTitle = styled.h3`
   font-size: 24px;
-  color: #072d4b;
+  color: #09aa64;
   text-transform: uppercase;
   margin-bottom: 32px;
 `;
@@ -79,20 +81,6 @@ const OrganogramaImage = styled.img`
   border-radius: 8px;
 `;
 
-/* ========== SEÇÃO “VEJA NOSSA EQUIPE NO DIA-A-DIA” ========== */
-const EquipeSection = styled.section`
-  background-color: #cff5d0;
-  padding: 40px 20px;
-  text-align: center;
-`;
-
-const EquipeGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-`;
-
 const EquipeWrapper = styled.section`
   background-color: #cff5d0;
   padding: 40px 20px;
@@ -101,7 +89,7 @@ const EquipeWrapper = styled.section`
 
 const EquipeTitle = styled.h3`
   font-size: 24px;
-  color: #072d4b;
+  color: #09aa64;
   text-transform: uppercase;
   margin-bottom: 24px;
 `;
@@ -111,13 +99,11 @@ const CarouselWrapper = styled.div`
   margin: 0 auto;
 `;
 
-// Slide container (opcional, mas costuma ajudar no layout)
 const SlideItem = styled.div`
   display: flex !important; /* força o slick-slide a respeitar o flex */
   justify-content: center;
 `;
 
-// Card com a borda verde
 const EquipeCard = styled.div`
   width: 280px;
   height: 200px;
@@ -145,7 +131,6 @@ const ArrowIcon = styled.img`
   width: 30px;
 `;
 
-// Left arrow
 const PrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
@@ -159,7 +144,6 @@ const PrevArrow = (props) => {
   );
 };
 
-// Right arrow
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
@@ -173,26 +157,25 @@ const NextArrow = (props) => {
   );
 };
 
-/* ========== COMPONENTE PRINCIPAL ========== */
 function OrganogramaPage() {
   const imagens = [EquipeImg1, EquipeImg2, EquipeImg3];
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // exibir 3 por vez
+    slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 768, // mobile
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
         },
       },
       {
-        breakpoint: 1024, // tablet
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
         },
@@ -201,28 +184,27 @@ function OrganogramaPage() {
   };
   return (
     <>
-      {/* Seção “Nossa Família” */}
-      <FamiliaSection>
-        <FamiliaTextBlock>
-          <FamiliaTitle>Nossa Família</FamiliaTitle>
-          <FamiliaParagraph>
-            Profissionalismo é a nossa palavra de ordem. Por serem muitas as
-            situações que chegam até nós, estamos prontos a atender diferentes
-            ações e a qualidade que nosso público merece.
-          </FamiliaParagraph>
-        </FamiliaTextBlock>
-        <FamiliaImageWrapper>
-          <FamiliaImage src={FamiliaImg} alt="Nossa Família" />
-        </FamiliaImageWrapper>
-      </FamiliaSection>
+      <CirclesBackground>
+        <FamiliaSection>
+          <FamiliaTextBlock>
+            <FamiliaTitle>Nossa Família</FamiliaTitle>
+            <FamiliaParagraph>
+              Profissionalismo é a nossa palavra de ordem. Por serem muitas as
+              situações que chegam até nós, estamos prontos a atender diferentes
+              ações e a qualidade que nosso público merece.
+            </FamiliaParagraph>
+          </FamiliaTextBlock>
+          <FamiliaImageWrapper>
+            <FamiliaImage src={FamiliaImg} alt="Nossa Família" />
+          </FamiliaImageWrapper>
+        </FamiliaSection>
+      </CirclesBackground>
 
-      {/* Seção “ORGANOGRAMA INSTITUCIONAL” */}
       <OrganogramaSection>
         <OrganogramaTitle>Organograma Institucional</OrganogramaTitle>
         <OrganogramaImage src={OrganogramaImg} alt="Organograma" />
       </OrganogramaSection>
 
-      {/* Seção “VEJA NOSSA EQUIPE” */}
       <EquipeWrapper>
         <EquipeTitle>Veja nossa equipe no dia-a-dia</EquipeTitle>
 

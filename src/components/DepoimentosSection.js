@@ -7,11 +7,11 @@ import WppImg from "../assets/images/wppPerfil2.png";
 import WppImg2 from "../assets/images/wppPerfil.png";
 import WppImg3 from "../assets/images/wppPerfil3.png";
 import WppImg4 from "../assets/images/wppPerfil4.png";
+import CirclesBackground from "./CirclesBackground";
 
 const WppImages = [WppImg, WppImg2, WppImg3, WppImg4];
 
 const DepoimentosWrapper = styled.section`
-  background: linear-gradient(135deg, #68ffc1, #07ed4c);
   padding: 60px 20px;
   color: #fff;
   text-align: center;
@@ -173,24 +173,26 @@ const DepoimentosSection = () => {
   };
 
   return (
-    <DepoimentosWrapper>
-      <Container>
-        <Title>Veja o que dizem sobre nós</Title>
+    <CirclesBackground>
+      <DepoimentosWrapper>
+        <Container>
+          <Title>Veja o que dizem sobre nós</Title>
 
-        <CarouselWrapper>
-          <Slider {...settings}>
-            {depoimentos.map((dep, index) => (
-              <DepoimentoCard key={dep.id}>
-                <FotoWrapper wppImage={WppImages[index]} />
-                <Nome>{dep.nome}</Nome>
-                <Subinfo>{dep.subtitulo}</Subinfo>
-                <TextoDepoimento>{dep.texto}</TextoDepoimento>
-              </DepoimentoCard>
-            ))}
-          </Slider>
-        </CarouselWrapper>
-      </Container>
-    </DepoimentosWrapper>
+          <CarouselWrapper>
+            <Slider {...settings}>
+              {depoimentos.map((dep, index) => (
+                <DepoimentoCard key={dep.id}>
+                  <FotoWrapper wppImage={WppImages[index]} />
+                  <Nome>{dep.nome}</Nome>
+                  <Subinfo>{dep.subtitulo}</Subinfo>
+                  <TextoDepoimento>{dep.texto}</TextoDepoimento>
+                </DepoimentoCard>
+              ))}
+            </Slider>
+          </CarouselWrapper>
+        </Container>
+      </DepoimentosWrapper>
+    </CirclesBackground>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import CountUp from "./CountUp";
 
 const CardWrapper = styled.section`
   background-color: #fff;
@@ -86,21 +87,27 @@ const NumerosSection = () => {
 
       <NumbersRow>
         <NumberItem>
-          <NumberValue>+ 9000</NumberValue>
+          <NumberValue>
+            +<CountUp endValue={9000} duration={2} />
+          </NumberValue>
           <NumberDescription>
             Crianças e adolescentes cadastradas desde 1987
           </NumberDescription>
         </NumberItem>
 
         <NumberItem>
-          <NumberValue>2300</NumberValue>
+          <NumberValue>
+            +<CountUp endValue={2300} duration={2} />
+          </NumberValue>
           <NumberDescription>
             Crianças e adolescentes em acompanhamento em 2024
           </NumberDescription>
         </NumberItem>
 
         <NumberItem>
-          <NumberValue>1200</NumberValue>
+          <NumberValue>
+            +<CountUp endValue={1200} duration={2} />
+          </NumberValue>
           <NumberDescription>
             Média mensal no serviço de audiologia
           </NumberDescription>

@@ -1,8 +1,5 @@
-// src/pages/ProjetosPage.js
 import React from "react";
 import styled from "styled-components";
-
-// Exemplos de imagens (substitua pelas reais)
 import ProjetosImg from "../assets/images/Reabilitacao-1.png";
 import GovCearaLogo from "../assets/images/governo.png";
 import SUSLogo from "../assets/images/sus.png";
@@ -10,15 +7,18 @@ import UFCLogo from "../assets/images/ufc.png";
 import UECELogo from "../assets/images/uece.png";
 import UFMGLogo from "../assets/images/ufmg.png";
 import UnicefLogo from "../assets/images/unicef.png";
-
 import FortalezaLogo from "../assets/images/prefeituraFortaleza.png";
 import UnimedLogo from "../assets/images/unimed.png";
 import BNBLogo from "../assets/images/mnisteriodasaude.png";
 import ReceitaLogo from "../assets/images/receitaFederal.png";
+import CirclesBackground from "../components/CirclesBackground";
 
-/* =========== Seção NOSSOS PROJETOS =========== */
 const ProjetosWrapper = styled.section`
-  background: linear-gradient(135deg, #68ffc1, #07ed4c);
+  background: linear-gradient(
+    135deg,
+    rgba(224, 255, 235, 0.8),
+    rgba(255, 255, 255, 0.8)
+  );
   padding: 60px 20px;
   border-radius: 16px;
   max-width: 1200px;
@@ -27,7 +27,9 @@ const ProjetosWrapper = styled.section`
   flex-wrap: wrap;
   gap: 24px;
   align-items: center;
-  color: #072d4b;
+  color: #09aa64;
+  position: relative;
+  z-index: 999;
 `;
 
 const ProjetosTextBlock = styled.div`
@@ -61,21 +63,25 @@ const ProjetosImage = styled.img`
   object-fit: cover;
 `;
 
-/* =========== Seção PARCERIAS ACADÊMICAS =========== */
 const ParceriasAcademicasWrapper = styled.section`
   background-color: #cff5d0;
   padding: 40px 20px;
   text-align: center;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  border-radius: 16px;
+  margin-top: 60px;
 `;
 
 const ParceriasAcademicasTitle = styled.h3`
   font-size: 24px;
-  color: #072d4b;
+  color: #09aa64;
   text-transform: uppercase;
   margin-bottom: 24px;
 `;
 
-// Container para agrupar os logos
 const LogosGrid = styled.div`
   max-width: 1000px;
   margin: 0 auto;
@@ -98,7 +104,6 @@ const LogoImage = styled.img`
   height: auto;
 `;
 
-/* =========== Seção com dois blocos: PARCERIAS ASSISTENCIAIS e APOIO AOS P. DE EXPANSÃO =========== */
 const ParceriasOutrasWrapper = styled.section`
   max-width: 1200px;
   margin: 40px auto;
@@ -125,7 +130,7 @@ const ParceriaBox = styled.div`
 
 const BoxTitle = styled.h4`
   font-size: 20px;
-  color: #072d4b;
+  color: #09aa64;
   text-transform: uppercase;
   margin-bottom: 8px;
 `;
@@ -145,24 +150,24 @@ const LogosRow = styled.div`
 function ProjetosPage() {
   return (
     <>
-      {/* Seção NOSSOS PROJETOS */}
-      <ProjetosWrapper>
-        <ProjetosTextBlock>
-          <ProjetosTitle>Nossos Projetos</ProjetosTitle>
-          <ProjetosParagraph>
-            Nosso trabalho não para, até porque a demanda por nossos serviços
-            não para também de crescer. Estamos constantemente projetando
-            iniciativas e ações que contribuam para oferecermos mais e melhor.
-            Nossas parcerias colaboram para atingir objetivos capazes de levar
-            qualidade de vida a crianças, adolescentes, e suas famílias.
-          </ProjetosParagraph>
-        </ProjetosTextBlock>
-        <ProjetosImageWrapper>
-          <ProjetosImage src={ProjetosImg} alt="Imagem dos projetos" />
-        </ProjetosImageWrapper>
-      </ProjetosWrapper>
+      <CirclesBackground>
+        <ProjetosWrapper>
+          <ProjetosTextBlock>
+            <ProjetosTitle>Nossos Projetos</ProjetosTitle>
+            <ProjetosParagraph>
+              Nosso trabalho não para, até porque a demanda por nossos serviços
+              não para também de crescer. Estamos constantemente projetando
+              iniciativas e ações que contribuam para oferecermos mais e melhor.
+              Nossas parcerias colaboram para atingir objetivos capazes de levar
+              qualidade de vida a crianças, adolescentes, e suas famílias.
+            </ProjetosParagraph>
+          </ProjetosTextBlock>
+          <ProjetosImageWrapper>
+            <ProjetosImage src={ProjetosImg} alt="Imagem dos projetos" />
+          </ProjetosImageWrapper>
+        </ProjetosWrapper>
+      </CirclesBackground>
 
-      {/* Seção PARCERIAS ACADÊMICAS */}
       <ParceriasAcademicasWrapper>
         <ParceriasAcademicasTitle>
           Parcerias Acadêmicas
@@ -191,7 +196,6 @@ function ProjetosPage() {
         </LogosGrid>
       </ParceriasAcademicasWrapper>
 
-      {/* Seção PARCERIAS ASSISTENCIAIS e APOIO AOS P. DE EXPANSÃO */}
       <ParceriasOutrasWrapper>
         <ParceriaBox>
           <BoxTitle>Parcerias Assistenciais</BoxTitle>
