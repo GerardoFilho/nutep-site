@@ -145,6 +145,9 @@ const LogosRow = styled.div`
   gap: 24px;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 function ProjetosPage() {

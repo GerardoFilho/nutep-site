@@ -4,6 +4,9 @@ export const SectionContainer = styled.section`
   padding: 80px 0;
   background-color: #fff;
   text-align: center;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const CardsFlexContainer = styled.div`
@@ -19,4 +22,7 @@ export const CardWrapper = styled.div`
   flex: 0 0 442px;
   max-width: 442px;
   box-sizing: border-box;
+  @media (max-width: 768px) {
+    flex: 1;
+  }
 `;

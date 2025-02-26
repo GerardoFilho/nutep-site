@@ -153,6 +153,9 @@ const InfoCard = styled.div`
   padding: 24px;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const CardSection = styled.div`
@@ -162,6 +165,9 @@ const CardSection = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const InfoTitle = styled.h4`
@@ -210,6 +216,10 @@ const FamiliaImgStyled = styled.img`
   object-fit: cover;
   border: 2px solid #09aa64;
   border-radius: 8px;
+  @media (max-width: 768px) {
+    width: 80%;
+    height: 250px;
+  }
 `;
 
 const CarouselWrapper = styled.div`

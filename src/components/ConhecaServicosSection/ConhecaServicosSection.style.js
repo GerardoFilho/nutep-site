@@ -4,6 +4,9 @@ export const SectionContainer = styled.section`
   background-color: #cff5d0;
   text-align: center;
   padding: 60px 20px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const SectionContent = styled.div`

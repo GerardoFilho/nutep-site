@@ -4,6 +4,8 @@ export const SectionApoio = styled.section`
   padding: 40px 0;
   text-align: center;
   background-color: #fff;
+  @media (max-width: 768px) {
+  }
 `;
 
 export const Title = styled.h2`
@@ -28,7 +30,10 @@ export const ApoioImage = styled.img`
   object-fit: cover;
   margin: 0 auto;
   border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  @media (max-width: 768px) {
+    width: 90%;
+    height: auto;
+  }
 `;
 
 export const ApoioCaption = styled.p`

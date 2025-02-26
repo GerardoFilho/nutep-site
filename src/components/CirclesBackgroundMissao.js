@@ -8,7 +8,6 @@ const BackgroundWrapper = styled.div`
   position: relative;
   height: ${(height) => height || "500px"};
   background: linear-gradient(135deg, #68ffc1, #07ed4c);
-  overflow: hidden;
 `;
 
 /* Container geral para agrupar as réplicas do SVG */
@@ -19,6 +18,7 @@ const SVGContainer = styled.div`
   width: 100%;
   height: 100%;
   pointer-events: none; /* se quiser que o usuário não clique no SVG */
+  overflow: hidden;
 `;
 
 /* Cada “instância” do SVG com posição e tamanho */
@@ -30,6 +30,7 @@ const CircleWrapper = styled.div`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   transform-origin: center center;
+  overflow: hidden;
 `;
 
 function CirclesBackgroundMissao({ children, height }) {

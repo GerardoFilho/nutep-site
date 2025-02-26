@@ -10,7 +10,7 @@ const CardWrapper = styled.section`
   margin: 0 auto;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  height: 476px;
+  height: 440px;
   display: flex;
   flex-direction: column;
   gap: 60px;

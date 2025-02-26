@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./UnidadeApoioSection.style";
+import UnidadeApoio from "../../assets/images/UnidadeApoio.png";
 
 const UnidadeApoioSection = () => {
   return (
@@ -9,7 +10,7 @@ const UnidadeApoioSection = () => {
         Para além das três Unidades principais, o NUTEP conta com outra Unidade
         de apoio!
       </S.Subtitle>
-      <S.ApoioImage src="https://universo.uniateneu.edu.br/wp-content/uploads/2022/05/Gestao-publica.jpeg" />
+      <S.ApoioImage src={UnidadeApoio} />
       <S.ApoioCaption>
         Unidade IV – Administração e Recursos Humanos
       </S.ApoioCaption>

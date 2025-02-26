@@ -45,6 +45,10 @@ const AcaoImage = styled.img`
   object-fit: cover;
   border: 2px solid #48af66;
   border-radius: 8px;
+  @media (max-width: 768px) {
+    width: 80%;
+    height: 250px;
+  }
 `;
 
 const InstaLink = styled.a`

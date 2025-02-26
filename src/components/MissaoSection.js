@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Retangulo from "../assets/images/Rectangle.png";
 import NumerosSection from "./NumerosSection";
 import CirclesBackgroundMissao from "./CirclesBackgroundMissao";
+import MissaoImg from "../assets/images/nossaMissao.png";
+import CuidadoImg from "../assets/images/Cuidadoquetransforma.png";
 
 const MissaoWrapper = styled.section`
   position: relative;
@@ -11,6 +13,7 @@ const MissaoWrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  height: 1000px;
   @media (max-width: 768px) {
     height: 100%;
   }
@@ -24,12 +27,14 @@ const MissaoSection = () => {
         <MissaoCard
           title="NOSSA MISSÃO"
           description="Prestar assistência especializada a crianças e adolescentes na área do neurodesenvolvimento, mediante as ações de intervenção precoce, habilitação, reabilitação, atenção às famílias e inclusão social."
+          image={MissaoImg}
         />
         <MissaoCard
           order="reverse"
           title="CUIDADO QUE TRANSFORMA"
           description="“Conhecer o NUTEP é entrar em um mundo de esforços e expectativas, de frustrações e recompensas, de batalhas perdidas e guerras ganhas, um mundo de insistência, de persistência, de pura teimosia, dimensionado na marcha lenta do dia a dia, movido pela força de vontade das mães e pais, dos cuidadores e profissionais.”"
           signed="Angela Barros Leal – Jornalista"
+          image={CuidadoImg}
         />
         <div>
           <NumerosSection />

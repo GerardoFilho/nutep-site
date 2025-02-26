@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import MissaoImg from "../assets/images/Assistencia-1.png";
 
 const CirclesOverlay = styled.div`
   position: absolute;
@@ -9,6 +8,7 @@ const CirclesOverlay = styled.div`
   width: 100%;
   height: 100%;
   pointer-events: none;
+  overflow: hidden;
 `;
 
 const ContentContainer = styled.div`
@@ -73,15 +73,25 @@ const ImageBlock = styled.div`
 `;
 
 const MissaoImage = styled.img`
-  width: 100%;
+  width: fit-content;
   max-width: 480px;
   height: 300px;
   border: 4px solid #48af66;
   border-radius: 12px;
   object-fit: cover;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
-const MissaoCard = ({ order = "normal", title, description, signed }) => {
+const MissaoCard = ({
+  order = "normal",
+  title,
+  description,
+  signed,
+  image,
+}) => {
   return (
     <>
       <CirclesOverlay />
@@ -98,7 +108,7 @@ const MissaoCard = ({ order = "normal", title, description, signed }) => {
         </TextBlock>
 
         <ImageBlock order={order}>
-          <MissaoImage src={MissaoImg} alt="Missão Nutep" />
+          <MissaoImage src={image} alt="Missão Nutep" />
         </ImageBlock>
       </ContentContainer>
     </>
