@@ -49,12 +49,12 @@ const Title = styled.h2`
 const Description = styled.p`
   font-size: 16px;
   line-height: 1.4;
-  color: #fff;
+  color: #071638;
 `;
 
 const Span = styled.span`
   line-height: 1.4;
-  color: #fff;
+  color: #071638;
 `;
 
 const ImageBlock = styled.div`

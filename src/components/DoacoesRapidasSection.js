@@ -28,8 +28,8 @@ const Card = styled.div`
   width: 140px;
   background-color: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
   text-align: center;
 `;
 

@@ -31,6 +31,7 @@ const CircleWrapper = styled.div`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   transform-origin: center center;
+  transition: transform 0.3s ease-out;
 `;
 
 function CirclesBackground({ children, height }) {

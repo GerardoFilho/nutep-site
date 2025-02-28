@@ -31,6 +31,7 @@ const CircleWrapper = styled.div`
   height: ${({ size }) => size}px;
   transform-origin: center center;
   overflow: hidden;
+  transition: transform 0.2s ease-out;
 `;
 
 function CirclesBackgroundMissao({ children, height }) {
@@ -56,7 +57,7 @@ function CirclesBackgroundMissao({ children, height }) {
   useEffect(() => {
     function handleScroll() {
       // Exemplo: fator de escala suave
-      const scale = 1.5 + Math.floor(Math.random() * 1.8);
+      const scale = window.scrollY / 1000 + 1;
 
       // Aplica a cada círculo
       circlesRefs.current.forEach((ref) => {
