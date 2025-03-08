@@ -20,7 +20,6 @@ const App = () => {
     <>
       <Router>
         <Header />
-
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/historia" element={<HistoriaPage />} />

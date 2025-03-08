@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ConhecaServicosSection from "../components/ConhecaServicosSection/ConhecaServicosSection";
 import ServicesSection from "../components/ServicesSection/ServicesSection";
 import {
@@ -19,7 +19,10 @@ const Container = styled.div`
   }
 `;
 
-const servicosPage = () => {
+const ServicosPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const descricao =
     "Disponibilizamos uma grande variedade de serviços especializados em intervenção precoce e reabilitação, tendo à frente profissionais que desenvolvem atividades específicas, sempre considerando a interdisciplinaridade e o Programa Terapêutico Singular (PTA) como eixos fundamentais de atuação.";
   return (
@@ -57,4 +60,4 @@ const servicosPage = () => {
   );
 };
 
-export default servicosPage;
+export default ServicosPage;

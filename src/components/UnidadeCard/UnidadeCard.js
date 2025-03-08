@@ -14,7 +14,9 @@ const UnidadeCard = ({ id, nome, image, link }) => {
           <S.UnitTitle>{nome}</S.UnitTitle>
           <S.SeeMore href={link}>Veja mais +</S.SeeMore>
         </S.InfoBar>
-        <S.TourButton>Faça um tour virtual &gt;</S.TourButton>
+        <S.TourButton as={Link} to={`/historia`}>
+          Faça um tour virtual &gt;
+        </S.TourButton>
       </S.CardContainer>
     </Link>
   );

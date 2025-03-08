@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ProjetosImg from "../assets/images/Reabilitacao-1.png";
 import GovCearaLogo from "../assets/images/governo.png";
@@ -151,6 +151,9 @@ const LogosRow = styled.div`
 `;
 
 function ProjetosPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <CirclesBackground>
