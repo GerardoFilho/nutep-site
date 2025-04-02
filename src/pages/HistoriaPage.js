@@ -15,6 +15,7 @@ const ImageStyled = styled.img`
   width: 100%;
   max-width: 1400px;
   padding-bottom: 40px;
+  cursor: default;
   @media (max-width: 768px) {
     max-width: 500px;
   }
@@ -25,7 +26,9 @@ function HistoriaPage() {
 
   return (
     <TopContainer>
-      <ImageStyled src={isDesktop ? Desktop : Mobile} alt="img" />
+      <a href="/projetos">
+        <ImageStyled src={isDesktop ? Desktop : Mobile} alt="img" />
+      </a>
     </TopContainer>
   );
 }

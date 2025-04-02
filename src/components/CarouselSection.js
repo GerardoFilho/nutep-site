@@ -7,6 +7,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Banner1 from "../assets/images/banner1.png";
 import Banner2 from "../assets/images/banner2.png";
 import Banner3 from "../assets/images/banner3.png";
+import { useNavigate } from "react-router-dom";
 
 const CarouselWrapper = styled.section`
   width: 100%;
@@ -21,15 +22,8 @@ const CarouselWrapper = styled.section`
 `;
 
 /* Componente original SlideContent, agora com um estilo extra para a imagem interna */
-const SlideContent = styled.div`
-  height: 520px;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: #072d4b;
-  background: url(${(props) => props.bannerImages}) no-repeat center center /
-    cover;
+const Image = styled.img`
+  cursor: pointer;
 `;
 
 const ArrowButton = styled.div`
@@ -67,6 +61,7 @@ const NextArrow = (props) => {
 };
 
 const CarouselSection = () => {
+  const navigate = useNavigate();
   const settings = {
     dots: true,
     infinite: true,
@@ -77,12 +72,22 @@ const CarouselSection = () => {
     nextArrow: <NextArrow />,
   };
 
+  const handleClickDepoimento = () => {
+    const section = document.getElementById("depoimentos");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const handleClickTour = () => {
+    navigate("/unidades");
+  };
+
   return (
     <CarouselWrapper>
       <Slider {...settings} style={{ width: "100%" }}>
-        <img src={Banner1} alt="Banner 1" />
-        <img src={Banner2} alt="Banner 2" />
-        <img src={Banner3} alt="Banner 3" />
+        <Image src={Banner1} alt="Banner 1" onClick={handleClickDepoimento} />
+        <Image src={Banner2} alt="Banner 2" />
+        <Image src={Banner3} alt="Banner 3" onClick={handleClickTour} />
       </Slider>
     </CarouselWrapper>
   );

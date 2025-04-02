@@ -175,7 +175,7 @@ const DepoimentosSection = () => {
 
   return (
     <CirclesBackgroundMissao height={"1060px"} limitedCircles={true}>
-      <DepoimentosWrapper>
+      <DepoimentosWrapper id="depoimentos">
         <Container>
           <Title>Veja o que dizem sobre nós</Title>
 
