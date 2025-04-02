@@ -60,7 +60,6 @@ const NewsListPage = ({ newsData }) => {
             image={news.image}
             title={news.title}
             content={news.content}
-            time={news.time}
           />
         ))}
 

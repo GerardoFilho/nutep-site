@@ -74,7 +74,7 @@ const Footer = () => {
         <div>
           <S.ColumnTitle>Formas de Contato</S.ColumnTitle>
           <S.ContactInfo>
-            <strong>Email:</strong> exemplo@email.com
+            <strong>Email:</strong> doarnutep@nutep.org.br
             <br />
             <strong>Telefone:</strong> (85) 3223-4522
             <br />

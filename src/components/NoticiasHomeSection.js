@@ -32,7 +32,7 @@ const CardsRow = styled.div`
 const CardNoticia = styled.div`
   background-color: #fff;
   width: 260px;
-  height: 300px;
+  height: 330px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -40,11 +40,6 @@ const CardNoticia = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
-
-const NoticiaImagem = styled.div`
-  height: 220px;
-  background-color: #ccc;
 `;
 
 const NoticiaContent = styled.div`

@@ -42,6 +42,12 @@ const Header = () => {
             <S.NavItem to={"/quem-somos"} onClick={handleLinkClick}>
               Quem Somos
             </S.NavItem>
+            <S.NavItem to={"/organograma"} onClick={handleLinkClick}>
+              Equipe
+            </S.NavItem>
+            <S.NavItem to={"/historia"} onClick={handleLinkClick}>
+              Linha do tempo
+            </S.NavItem>
 
             <S.NavItem to={`/unidades`} onClick={handleLinkClick}>
               Unidades
