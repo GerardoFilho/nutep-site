@@ -76,7 +76,7 @@ const HeroImage = styled.img`
 function DoacoesPage() {
   return (
     <>
-      <CirclesBackgroundMissao height={"1060px"} scrollNumber={0}>
+      <CirclesBackground height={"1060px"} limitedCircles="true">
         <HeroWrapper>
           <HeroTextBlock>
             <HeroTitle>Mude vidas, seja um doador</HeroTitle>
@@ -90,7 +90,7 @@ function DoacoesPage() {
             <HeroImage src={DoarImg} alt="Mude vidas, seja um doador" />
           </HeroImageWrapper>
         </HeroWrapper>
-      </CirclesBackgroundMissao>
+      </CirclesBackground>
       <DoacoesRapidasSection />
       <OutrasFormasDoar />
       <NewsletterSection />
