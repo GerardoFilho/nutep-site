@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const NewsletterWrapper = styled.section`
-  background-color: #aef3b4;
+  background-color: #abe9be;
   border-radius: 16px;
   padding: 72px 48px;
   margin: 40px auto;
@@ -47,9 +47,9 @@ const Highlight = styled.span`
 `;
 
 const Subtitle = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
-  background-color: #48af66;
+  background-color: #33b97f;
   display: inline-block;
   padding: 16px;
   border-radius: 50px;
@@ -73,7 +73,7 @@ const Form = styled.form`
 const EmailInput = styled.input`
   padding: 10px 16px;
   border: 2px solid #48af66;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 14px;
   outline: none;
   width: 320px;
@@ -84,7 +84,7 @@ const SubmitButton = styled.button`
   background-color: #48af66;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 24px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;

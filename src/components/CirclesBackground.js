@@ -8,8 +8,7 @@ import useIsDesktop from "../hooks/useIsDesktop";
 const BackgroundWrapper = styled.div`
   position: relative;
   height: ${(height) => height || "500px"};
-  background: linear-gradient(135deg, #07ed4c, #37d1a3, #6db2bf);
-  overflow: hidden;
+  background: linear-gradient(135deg, #68ffc1, #07ed4c);
 `;
 
 /* Container geral para agrupar as réplicas do SVG */
@@ -20,6 +19,7 @@ const SVGContainer = styled.div`
   width: 100%;
   height: 100%;
   pointer-events: none; /* se quiser que o usuário não clique no SVG */
+  overflow: hidden;
 `;
 
 /* Cada “instância” do SVG com posição e tamanho */
@@ -31,28 +31,34 @@ const CircleWrapper = styled.div`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   transform-origin: center center;
-  transition: transform 0.3s ease-out;
+  overflow: hidden;
+  transition: transform 0.2s ease-out;
 `;
 
-function CirclesBackground({ children, height }) {
+function CirclesBackground({ children, height, limitedCircles }) {
   const isDesktop = useIsDesktop(768);
-
-  const circlesData = [
-    { top: "5%", left: "5%", size: 150 },
-    { top: "20%", left: "95%", size: 180 },
-    { top: "90%", left: "15%", size: 180 },
-    { top: "30%", left: "45%", size: 180 },
-    { top: "80%", left: "80%", size: 180 },
-  ];
-  const circlesMobileData = [
-    { top: "5%", left: "5%", size: 100 },
-    { top: "20%", left: "80%", size: 130 },
-    { top: "90%", left: "15%", size: 130 },
-  ];
+  const circlesData =
+    isDesktop || !limitedCircles
+      ? [
+          { top: "10%", left: "-8%", size: 320 },
+          { top: "10%", left: "15%", size: 250 },
+          { top: "10%", left: "90%", size: 320 },
+          { top: "35%", left: "25%", size: 280 },
+          { top: "5%", left: "30%", size: 280 },
+          { top: "25%", left: "45%", size: 280 },
+          { top: "15%", left: "60%", size: 280 },
+          { top: "5%", left: "70%", size: 280 },
+          { top: "55%", left: "5%", size: 280 },
+          { top: "50%", left: "80%", size: 280 },
+        ]
+      : [
+          { top: "10%", left: "-8%", size: 320 },
+          { top: "30%", left: "35%", size: 250 },
+          { top: "50%", left: "90%", size: 320 },
+        ];
 
   // Cria um array de refs para cada instância
   const circlesRefs = useRef([]);
-  const circlesMobileRefs = useRef([]);
 
   // Inicializa o array de refs (um para cada item do circlesData)
   if (!circlesRefs.current.length) {
@@ -60,26 +66,18 @@ function CirclesBackground({ children, height }) {
       .fill()
       .map(() => React.createRef());
   }
-  if (!circlesMobileRefs.current.length) {
-    circlesMobileRefs.current = Array(circlesMobileData.length)
-      .fill()
-      .map(() => React.createRef());
-  }
 
   useEffect(() => {
     function handleScroll() {
       // Exemplo: fator de escala suave
-      const scale = 1.5 + Math.floor(Math.random() * 1.8);
+      const scale = window.scrollY / 1000 + 1;
 
       // Aplica a cada círculo
       circlesRefs.current.forEach((ref) => {
         if (ref.current) {
-          ref.current.style.transform = `scale(${scale})`;
-        }
-      });
-      circlesMobileRefs.current.forEach((ref) => {
-        if (ref.current) {
-          ref.current.style.transform = `scale(${scale})`;
+          ref.current.style.transform = `scale(${
+            scale >= 2.7 ? scale / 2 : scale
+          })`;
         }
       });
     }
@@ -90,35 +88,19 @@ function CirclesBackground({ children, height }) {
 
   return (
     <BackgroundWrapper height={height}>
-      {isDesktop ? (
-        <SVGContainer>
-          {circlesData.map((circle, index) => (
-            <CircleWrapper
-              key={index}
-              top={circle.top}
-              left={circle.left}
-              size={circle.size}
-              ref={circlesRefs.current[index]}
-            >
-              <CirclesSVG width="100%" height="100%" />
-            </CircleWrapper>
-          ))}
-        </SVGContainer>
-      ) : (
-        <SVGContainer>
-          {circlesMobileData.map((circle, index) => (
-            <CircleWrapper
-              key={index}
-              top={circle.top}
-              left={circle.left}
-              size={circle.size}
-              ref={circlesMobileRefs.current[index]}
-            >
-              <CirclesSVG width="100%" height="100%" />
-            </CircleWrapper>
-          ))}
-        </SVGContainer>
-      )}
+      <SVGContainer>
+        {circlesData.map((circle, index) => (
+          <CircleWrapper
+            key={index}
+            top={circle.top}
+            left={circle.left}
+            size={circle.size}
+            ref={circlesRefs.current[index]}
+          >
+            <CirclesSVG width="100%" height="100%" />
+          </CircleWrapper>
+        ))}
+      </SVGContainer>
       {children}
     </BackgroundWrapper>
   );

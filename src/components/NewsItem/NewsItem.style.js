@@ -18,11 +18,10 @@ export const NewsItemContainer = styled.div`
 }
 `;
 
-export const NewsImagePlaceholder = styled.div`
+export const NewsImagePlaceholder = styled.img`
   width: 100%;
   max-width: 550px;
   height: 300px;
-  background-color: ${lightGray};
   border-radius: 8px;
   flex-shrink: 0;
 `;

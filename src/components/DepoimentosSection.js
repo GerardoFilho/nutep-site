@@ -8,6 +8,7 @@ import WppImg2 from "../assets/images/wppPerfil.png";
 import WppImg3 from "../assets/images/wppPerfil3.png";
 import WppImg4 from "../assets/images/wppPerfil4.png";
 import CirclesBackground from "./CirclesBackground";
+import CirclesBackgroundMissao from "./CirclesBackgroundMissao";
 
 const WppImages = [WppImg, WppImg2, WppImg3, WppImg4];
 
@@ -173,7 +174,7 @@ const DepoimentosSection = () => {
   };
 
   return (
-    <CirclesBackground>
+    <CirclesBackgroundMissao height={"1060px"} limitedCircles={true}>
       <DepoimentosWrapper>
         <Container>
           <Title>Veja o que dizem sobre nós</Title>
@@ -192,7 +193,7 @@ const DepoimentosSection = () => {
           </CarouselWrapper>
         </Container>
       </DepoimentosWrapper>
-    </CirclesBackground>
+    </CirclesBackgroundMissao>
   );
 };
 

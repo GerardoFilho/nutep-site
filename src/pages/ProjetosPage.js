@@ -156,7 +156,7 @@ function ProjetosPage() {
   }, []);
   return (
     <>
-      <CirclesBackground>
+      <CirclesBackground limitedCircles={true}>
         <ProjetosWrapper>
           <ProjetosTextBlock>
             <ProjetosTitle>Nossos Projetos</ProjetosTitle>

@@ -1,27 +1,35 @@
 import React from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
-
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
+// Importando as imagens dos slides (substitua pelos caminhos reais)
+import Banner1 from "../assets/images/banner1.png";
+import Banner2 from "../assets/images/banner2.png";
+import Banner3 from "../assets/images/banner3.png";
 
 const CarouselWrapper = styled.section`
   width: 100%;
-  height: 400px;
+  height: 100%;
   background: #cff5d0;
-
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  background: url(${(props) => props.bannerImages}) no-repeat center center /
+    cover;
 `;
 
+/* Componente original SlideContent, agora com um estilo extra para a imagem interna */
 const SlideContent = styled.div`
-  height: 300px;
+  height: 520px;
   display: flex !important;
   align-items: center;
   justify-content: center;
   font-size: 24px;
   color: #072d4b;
+  background: url(${(props) => props.bannerImages}) no-repeat center center /
+    cover;
 `;
 
 const ArrowButton = styled.div`
@@ -71,10 +79,10 @@ const CarouselSection = () => {
 
   return (
     <CarouselWrapper>
-      <Slider {...settings} style={{ width: "80%" }}>
-        <SlideContent>Slide 1</SlideContent>
-        <SlideContent>Slide 2</SlideContent>
-        <SlideContent>Slide 3</SlideContent>
+      <Slider {...settings} style={{ width: "100%" }}>
+        <img src={Banner1} alt="Banner 1" />
+        <img src={Banner2} alt="Banner 2" />
+        <img src={Banner3} alt="Banner 3" />
       </Slider>
     </CarouselWrapper>
   );

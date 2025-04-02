@@ -57,6 +57,7 @@ const NewsListPage = ({ newsData }) => {
             key={news.id}
             id={news.id}
             category={news.category}
+            image={news.image}
             title={news.title}
             content={news.content}
             time={news.time}

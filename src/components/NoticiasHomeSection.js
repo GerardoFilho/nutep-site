@@ -58,7 +58,7 @@ const NoticiaContent = styled.div`
 `;
 
 const NoticiaTitle = styled.h4`
-  font-size: 16px;
+  font-size: 14px;
   color: #2f8147;
   margin-bottom: 8px;
   font-weight: 700;
@@ -106,7 +106,7 @@ const NoticiasHomeSection = () => {
             .filter((data) => data.id <= 4)
             .map((noticia) => (
               <CardNoticia key={noticia.id}>
-                <NoticiaImagem />
+                <img src={noticia.image} alt="Imagem ultima noticia" />
                 <NoticiaContent>
                   <NoticiaTitle>{noticia.title}</NoticiaTitle>
                   <LerMaisButton to={`/noticias/${noticia.id}`}>

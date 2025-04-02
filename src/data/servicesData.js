@@ -9,6 +9,8 @@ import Reabilitacao3 from "./../assets/images/Reabilitacao-3.png";
 import Reabilitacao4 from "./../assets/images/Reabilitacao-4.png";
 import Reabilitacao5 from "./../assets/images/Reabilitacao-5.png";
 import Reabilitacao6 from "./../assets/images/Reabilitacao-6.png";
+import Reabilitacao7 from "./../assets/images/robotica.png";
+import Reabilitacao8 from "./../assets/images/musico.png";
 
 import Assistencia1 from "./../assets/images/Assistencia-1.png";
 import Assistencia2 from "./../assets/images/Assistencia-2.png";
@@ -75,6 +77,18 @@ export const rehabilitationServices = [
   },
   {
     id: 9,
+    title: "Musicoterapia",
+    image: Reabilitacao8,
+    description: "Auxílio no desenvolvimento e reabilitação.",
+  },
+  {
+    id: 10,
+    title: "Robótica",
+    image: Reabilitacao7,
+    description: "Auxílio no desenvolvimento e reabilitação.",
+  },
+  {
+    id: 11,
     title: "Terapia Ocupacional",
     image: Reabilitacao6,
     description: "Auxílio no desenvolvimento e reabilitação.",
@@ -83,13 +97,13 @@ export const rehabilitationServices = [
 
 export const socialAssistanceServices = [
   {
-    id: 10,
+    id: 12,
     title: "Assistência Social",
     image: Assistencia1,
     description: "Serviços de assistência social.",
   },
   {
-    id: 11,
+    id: 13,
     title: "Atendimento Social",
     image: Assistencia2,
     description: "Apoio e acompanhamento familiar.",
@@ -98,7 +112,7 @@ export const socialAssistanceServices = [
 
 export const orthopedicWorkshop = [
   {
-    id: 12,
+    id: 14,
     title: "Tecnologia Assistiva",
     image: Ortopedica,
     description: "Confecção e manutenção de aparelhos ortopédicos.",

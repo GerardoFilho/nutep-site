@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const colorDark = "#072D4B";
@@ -112,7 +113,7 @@ export const NavList = styled.ul`
   }
 `;
 
-export const NavItem = styled.li`
+export const NavItem = styled(NavLink)`
   list-style: none;
   font-size: 16px;
   color: ${colorDark};
@@ -120,6 +121,14 @@ export const NavItem = styled.li`
 
   &:hover {
     opacity: 0.7;
+    border-bottom: 4px solid #48af66;
+    padding: 4px 0px;
+  }
+  &.active {
+    background-color: ${colorGreenLight};
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-weight: 600;
   }
 `;
 

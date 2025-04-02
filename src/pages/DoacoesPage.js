@@ -6,6 +6,7 @@ import NewsletterSection from "../components/NewsLetterSection";
 import DoacoesRapidasSection from "../components/DoacoesRapidasSection";
 import OutrasFormasDoar from "../components/OutrasFormasDoar";
 import CirclesBackground from "../components/CirclesBackground";
+import CirclesBackgroundMissao from "../components/CirclesBackgroundMissao";
 
 const HeroWrapper = styled.section`
   background: linear-gradient(
@@ -75,7 +76,7 @@ const HeroImage = styled.img`
 function DoacoesPage() {
   return (
     <>
-      <CirclesBackground>
+      <CirclesBackgroundMissao height={"1060px"} scrollNumber={0}>
         <HeroWrapper>
           <HeroTextBlock>
             <HeroTitle>Mude vidas, seja um doador</HeroTitle>
@@ -89,7 +90,7 @@ function DoacoesPage() {
             <HeroImage src={DoarImg} alt="Mude vidas, seja um doador" />
           </HeroImageWrapper>
         </HeroWrapper>
-      </CirclesBackground>
+      </CirclesBackgroundMissao>
       <DoacoesRapidasSection />
       <OutrasFormasDoar />
       <NewsletterSection />

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-import SobreImg from "../assets/images/Assistencia-1.png";
+import SobreImg from "../assets/images/sobrenos.png";
 import Video from "../assets/nutepVideoReduzido.mp4";
 import VideoOrImageSection from "../components/VideoOrImageSection";
-import FamiliaImg1 from "../assets/images/Assistencia-1.png";
-import FamiliaImg2 from "../assets/images/Assistencia-1.png";
-import FamiliaImg3 from "../assets/images/Assistencia-1.png";
+import FamiliaImg1 from "../assets/images/vidanova1.png";
+import FamiliaImg2 from "../assets/images/vidanova2.png";
+import FamiliaImg3 from "../assets/images/vidanova3.png";
 import MapaBrasil from "../assets/images/Brasil.png";
 import PredioAcademico from "../assets/images/Programas-academicos.png";
 import RightIcon from "../assets/icons/right-arrow.png";
@@ -214,7 +214,6 @@ const FamiliaImgStyled = styled.img`
   max-width: 300px;
   height: 300px;
   object-fit: cover;
-  border: 2px solid #09aa64;
   border-radius: 8px;
   @media (max-width: 768px) {
     width: 80%;
@@ -302,7 +301,7 @@ function AboutPage() {
   };
   return (
     <>
-      <CirclesBackground>
+      <CirclesBackground height={"1060px"} limitedCircles={true}>
         <SobreWrapper>
           <TextoSobre>
             <TituloSobre>Sobre Nós</TituloSobre>

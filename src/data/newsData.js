@@ -1,7 +1,13 @@
+import NutepPromove from "../assets/images/Nutep-promove.png";
+import NutepLanca from "../assets/images/Nutep-lanca.png";
+import FormacaoEquipe from "../assets/images/Formacao-equipe.png";
+import RedeBuriti from "../assets/images/buritibranco.png";
+
 export const newsData = [
   {
     id: 1,
     category: "Saúde",
+    image: NutepPromove,
     title:
       "Treinamento para Profissionais com Foco em Apoio a Famílias de Jovens com Paralisia Cerebral",
     content:
@@ -18,33 +24,29 @@ export const newsData = [
   {
     id: 2,
     category: "Saúde",
+    image: NutepLanca,
     title: "Projeto de assistência a crianças com seletividade alimentar",
     content:
-      "NUTEP lança programa para crianças de 6 a 24 meses, focado em combater a seletividade alimentar e promover introdução saudável.",
+      "O NUTEP lança projeto de assistência a crianças com seletividade alimentarpara crianças de 6 a 24 meses, focado em combater a seletividade alimentar e promover introdução saudável.",
     time: "Há X horas",
   },
   {
     id: 3,
     category: "Saúde",
-    title: "Projeto de prevenção para crianças com seletividade alimentar",
+    image: FormacaoEquipe,
+    title:
+      "Formação de Equipes Multiprofissionais em Intervenção Precoce e Reabilitação de Crianças e Adolescentes com TEA em municípios do Ceará",
     content:
-      "NUTEP conclui formação multiprofissional em intervenção precoce no TEA, capacitando 30 profissionais de municípios do Ceará.",
+      "NUTEP conclui formação multiprofissional em intervenção precoce no TEA, capacitando 30 profissionais de municípios do Ceará. ",
     time: "Há X horas",
   },
   {
     id: 4,
     category: "Saúde",
     title: "Rede Buriti",
+    image: RedeBuriti,
     content:
-      "Qorem ipsum dolor sit amet, consectetur adipisicing elit. Qorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    time: "Há X horas",
-  },
-  {
-    id: 5,
-    category: "Saúde",
-    title: "Qorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    content:
-      "Qorem ipsum dolor sit amet, consectetur adipisicing elit. Qorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "A Rede Buriti-SD é a primeira rede de Pesquisa, Desenvolvimento e Inovação (PD&I) em síndrome de Down (SD) do Brasil, fruto da colaboração entre a comunidade científica e a sociedade civil.",
     time: "Há X horas",
   },
 ];

@@ -2,6 +2,7 @@ import React from "react";
 import { FaInstagram } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa";
 import useIsDesktop from "../../hooks/useIsDesktop";
+import PoliticasPDF from "../../assets/doc/PoliticadePrivacidadeNUTEP_2024.pdf";
 import * as S from "./Footer.style";
 
 const Footer = () => {
@@ -40,7 +41,7 @@ const Footer = () => {
               href="https://www.instagram.com/nutepnarede"
               target="_blank"
             >
-              <FaInstagram size={16} />
+              <FaInstagram size={16} color="#33b97f" />
               @nutepnarede
             </S.SocialLink>
           </S.SocialsWrapper>
@@ -80,11 +81,12 @@ const Footer = () => {
             <strong>Endereço:</strong> Rua Papi Junior 1225, Rodolfo Teófilo |
             Fort/CE
           </S.ContactInfo>
-
-          <S.PolicyButton>
-            <FaDownload size={16} />
-            Políticas de Privacidade
-          </S.PolicyButton>
+          <a href={PoliticasPDF} download style={{ textDecoration: "none" }}>
+            <S.PolicyButton>
+              <FaDownload size={16} />
+              Políticas de Privacidade
+            </S.PolicyButton>
+          </a>
         </div>
       </S.FooterContent>
 

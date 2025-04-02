@@ -42,9 +42,10 @@ const ImagePlaceholder = styled.div`
   width: 100%;
   max-width: 800px;
   height: 400px;
-  background-color: #ccc;
+  background-image: url(${(props) => props.image});
   margin: 0 auto;
   border-radius: 8px;
+  background-repeat: round;
 `;
 
 const Caption = styled.p`
@@ -88,7 +89,7 @@ const NewsDetailsPage = () => {
           <Time>{news.time}</Time>
         </TextTopSection>
         <Container>
-          <ImagePlaceholder />
+          <ImagePlaceholder image={news.image} />
           <Caption>Legenda da foto. S/A.</Caption>
         </Container>
       </TopSection>

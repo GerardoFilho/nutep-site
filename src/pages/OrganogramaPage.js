@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import FamiliaImg from "../assets/images/Medico-1.png";
 import OrganogramaImg from "../assets/images/Organograma.png";
-import EquipeImg1 from "../assets/images/Reabilitacao-1.png";
-import EquipeImg2 from "../assets/images/Reabilitacao-2.png";
-import EquipeImg3 from "../assets/images/Reabilitacao-3.png";
+import EquipeImg1 from "../assets/images/diaadia1.png";
+import EquipeImg2 from "../assets/images/diaadia2.png";
+import EquipeImg3 from "../assets/images/diaadia3.png";
 import RightIcon from "../assets/icons/right-arrow.png";
 import LeftIcon from "../assets/icons/left-arrow.png";
 
 import Slider from "react-slick";
-import CirclesBackground from "../components/CirclesBackground";
+import CirclesBackgroundMissao from "../components/CirclesBackgroundMissao";
 
 const FamiliaSection = styled.section`
   background: linear-gradient(
@@ -105,9 +105,8 @@ const SlideItem = styled.div`
 `;
 
 const EquipeCard = styled.div`
-  width: 280px;
-  height: 200px;
-  border: 2px solid #48af66;
+  width: 400px;
+  height: 300px;
   border-radius: 8px;
   overflow: hidden;
 `;
@@ -184,7 +183,7 @@ function OrganogramaPage() {
   };
   return (
     <>
-      <CirclesBackground>
+      <CirclesBackgroundMissao height={"1060px"} scrollNumber={0}>
         <FamiliaSection>
           <FamiliaTextBlock>
             <FamiliaTitle>Nossa Família</FamiliaTitle>
@@ -198,7 +197,7 @@ function OrganogramaPage() {
             <FamiliaImage src={FamiliaImg} alt="Nossa Família" />
           </FamiliaImageWrapper>
         </FamiliaSection>
-      </CirclesBackground>
+      </CirclesBackgroundMissao>
 
       <OrganogramaSection>
         <OrganogramaTitle>Organograma Institucional</OrganogramaTitle>
