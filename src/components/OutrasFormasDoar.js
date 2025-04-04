@@ -40,7 +40,7 @@ const FormaRow = styled.div`
 /* Coluna esquerda (texto) */
 const FormaText = styled.div`
   flex: 1;
-  max-width: 400px;
+  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}` : "400px")};
   margin-right: 24px; /* espaço para separar do lado direito */
   @media (max-width: 768px) {
     margin-right: 0;
@@ -62,6 +62,9 @@ const FormaParagraph = styled.p`
   color: #333;
   line-height: 1.5;
   margin-bottom: 8px;
+  a {
+    color: #48af66;
+  }
 `;
 
 /* Destaque (ex.: "Chave-pix: doarnutep@nutep.org.br") */
@@ -161,24 +164,19 @@ function OutrasFormasDoar() {
         </FormaText>
       </FormaRow>
 
-      {/* BLOCO 3: TELEMARKETING */}
       <FormaRow>
-        <FormaText>
-          <FormaHeading>Telemarketing</FormaHeading>
+        <FormaText maxWidth="100%">
+          <FormaHeading>Não fazemos Telemarketing</FormaHeading>
           <FormaParagraph>
-            Ligue para <Destaque>(00) 9 0000-0000</Destaque> e contribua com
-            qualquer valor para a nossa causa. Juntos, podemos transformar
-            vidas!
+            O Nutep não tem central de telemarketing para doações, não iremos
+            pedir doações via ligações ou mensagens de texto e aplicativos de
+            mensagens, tais como whatsapp, telegram e outros similares. Se por
+            desventura você for abordado por alguém se passando pelo Nutep em
+            algum dos canais acima, favor nos informar no seguinte número:{" "}
+            <a href="tel:8532234522">(85) 3223-4522</a> e reportar o contato no
+            aplicativo em que foi feita a comunicação. A família Nutep agradece.
           </FormaParagraph>
         </FormaText>
-
-        <FormaImage border>
-          <img src={TelemarketingImg} alt="Telemarketing" />
-          <TextContainer>
-            <b>Nome da atendente</b>
-            <span>Unidade 1 - Sede</span>
-          </TextContainer>
-        </FormaImage>
       </FormaRow>
     </FormasWrapper>
   );

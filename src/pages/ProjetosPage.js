@@ -14,8 +14,8 @@ import ReceitaLogo from "../assets/images/receitaFederal.png";
 import CirclesBackground from "../components/CirclesBackground";
 import UnidadeVImg1 from "../assets/images/UniV.png";
 import UnidadeVImg2 from "../assets/images/UniV-2.png";
-import UnidadeVIImg1 from "../assets/images/UniVI.png";
-import UnidadeVIImg2 from "../assets/images/UniVI-2.png";
+import VideoUnidadeVI from "../assets/videos/NUTEP-UNIDADE-VI.mp4";
+import VideoOrImageSection from "../components/VideoOrImageSection";
 
 const ProjetosWrapper = styled.section`
   background: linear-gradient(
@@ -74,7 +74,7 @@ const ParceriasAcademicasWrapper = styled.section`
   max-width: 1000px;
   display: flex;
   flex-direction: column;
-  justify-self: center;
+  margin: auto;
   border-radius: 16px;
   margin-top: 60px;
 `;
@@ -186,21 +186,6 @@ const ImagesRow = styled.div`
   }
 `;
 
-const ImageWrapper = styled.div`
-  flex: 1;
-  min-width: 280px;
-  max-width: 500px;
-  display: flex;
-  justify-content: center;
-`;
-
-const UnidadeImage = styled.img`
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-  border: 1px solid #09aa64;
-`;
-
 const Paragraph = styled.p`
   font-size: 16px;
   color: #333;
@@ -229,6 +214,10 @@ const BulletItem = styled.div`
   padding: 16px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const BulletTitle = styled.h4`
@@ -249,6 +238,10 @@ const ImageTop = styled.img`
   border-radius: 8px;
   display: block;
   margin: 0 auto 24px;
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const Highlight = styled.span`
@@ -261,6 +254,10 @@ const ImageBottom = styled.img`
   max-width: 500px;
   border-radius: 8px;
   display: block;
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const BulletDiv = styled.div`
@@ -268,6 +265,17 @@ const BulletDiv = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
+`;
+
+const VideoWrapper = styled.div`
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto; /* centraliza */
+  aspect-ratio: 16 / 9; /* se quiser manter proporção de vídeo */
+  background: #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
 `;
 
 function ProjetosPage() {
@@ -398,12 +406,9 @@ function ProjetosPage() {
 
         {/* Imagens lado a lado */}
         <ImagesRow>
-          <ImageWrapper>
-            <UnidadeImage src={UnidadeVIImg1} alt="Unidade VI - Visão 1" />
-          </ImageWrapper>
-          <ImageWrapper>
-            <UnidadeImage src={UnidadeVIImg2} alt="Unidade VI - Visão 2" />
-          </ImageWrapper>
+          <VideoWrapper>
+            <VideoOrImageSection mediaType="video" mediaSrc={VideoUnidadeVI} />
+          </VideoWrapper>
         </ImagesRow>
 
         {/* Texto principal */}

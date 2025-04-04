@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 
 import SobreImg from "../assets/images/sobrenos.png";
-import Video from "../assets/nutepVideoReduzido.mp4";
+import Video from "../assets/videos/nutepVideoReduzido.mp4";
 import VideoOrImageSection from "../components/VideoOrImageSection";
 import FamiliaImg1 from "../assets/images/vidanova1.png";
 import FamiliaImg2 from "../assets/images/vidanova2.png";

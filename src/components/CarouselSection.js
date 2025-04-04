@@ -68,6 +68,8 @@ const CarouselSection = () => {
     speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
   };
@@ -81,12 +83,15 @@ const CarouselSection = () => {
   const handleClickTour = () => {
     navigate("/unidades");
   };
+  const handleClickDoacoes = () => {
+    navigate("/doacoes");
+  };
 
   return (
     <CarouselWrapper>
       <Slider {...settings} style={{ width: "100%" }}>
         <Image src={Banner1} alt="Banner 1" onClick={handleClickDepoimento} />
-        <Image src={Banner2} alt="Banner 2" />
+        <Image src={Banner2} alt="Banner 2" onClick={handleClickDoacoes} />
         <Image src={Banner3} alt="Banner 3" onClick={handleClickTour} />
       </Slider>
     </CarouselWrapper>

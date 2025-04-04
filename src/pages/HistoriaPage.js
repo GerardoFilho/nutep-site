@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 import Desktop from "../assets/images/desktop2.png";
 import Mobile from "../assets/images/mobile2.png";
 import useIsDesktop from "../hooks/useIsDesktop";
+import { NavLink } from "react-router-dom";
 
 const TopContainer = styled.div`
   background: linear-gradient(135deg, #68ffc1, #07ed4c);
@@ -24,11 +25,15 @@ const ImageStyled = styled.img`
 function HistoriaPage() {
   const isDesktop = useIsDesktop(768);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <TopContainer>
-      <a href="/projetos">
+      <NavLink to={"/projetos"}>
         <ImageStyled src={isDesktop ? Desktop : Mobile} alt="img" />
-      </a>
+      </NavLink>
     </TopContainer>
   );
 }

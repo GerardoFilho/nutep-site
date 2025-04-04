@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as LogoFooter } from "../../assets/icons/logo-footer.svg";
+import SmartLink from "../SmartLink/SmartLink";
 
 export const FooterContainer = styled.footer`
   width: 100%;
@@ -81,18 +82,13 @@ export const SocialLink = styled.a`
   }
 `;
 
-export const LinksList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  @media (max-width: 768px) {
-    display: flex;
-    justify-content: space-between;
-  }
+export const LinksList = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
-export const LinkItem = styled.li`
-  margin-bottom: 8px;
+export const LinkItem = styled(SmartLink)`
+  margin-bottom: 12px;
 
   a {
     color: #072d4b;

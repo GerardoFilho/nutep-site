@@ -50,24 +50,12 @@ const Footer = () => {
         <div>
           <S.ColumnTitle>Links Rápidos</S.ColumnTitle>
           <S.LinksList>
-            <S.LinkItem>
-              <a href="#home">Home</a>
-            </S.LinkItem>
-            <S.LinkItem>
-              <a href="#sobre">Sobre</a>
-            </S.LinkItem>
-            <S.LinkItem>
-              <a href="#unidades">Unidades</a>
-            </S.LinkItem>
-            <S.LinkItem>
-              <a href="#materiais">Materiais</a>
-            </S.LinkItem>
-            <S.LinkItem>
-              <a href="#contatos">Contatos</a>
-            </S.LinkItem>
-            <S.LinkItem>
-              <a href="#doacoes">Doações</a>
-            </S.LinkItem>
+            <S.LinkItem to="/">Home</S.LinkItem>
+            <S.LinkItem to="/quem-somos">Sobre </S.LinkItem>
+            <S.LinkItem to="/unidades">Unidades </S.LinkItem>
+            <S.LinkItem to="/servicos">Serviços </S.LinkItem>
+            <S.LinkItem to="/projetos">Projetos </S.LinkItem>
+            <S.LinkItem to="/doacoes">Doações </S.LinkItem>
           </S.LinksList>
         </div>
 

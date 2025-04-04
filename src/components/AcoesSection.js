@@ -7,8 +7,6 @@ import LeftIcon from "../assets/icons/left-arrow.png";
 import AcaoImg1 from "../assets/images/acoes1.png";
 import AcaoImg2 from "../assets/images/acoes2.png";
 import AcaoImg3 from "../assets/images/acoes3.png";
-import AcaoImg4 from "../assets/images/Assistencia-1.png";
-import AcaoImg5 from "../assets/images/Assistencia-1.png";
 
 const AcoesWrapper = styled.section`
   background-color: #e6f7f0;
@@ -114,7 +112,7 @@ const NextArrow = (props) => {
 };
 
 const AcoesSection = () => {
-  const imagens = [AcaoImg1, AcaoImg2, AcaoImg3, AcaoImg4, AcaoImg5];
+  const imagens = [AcaoImg1, AcaoImg2, AcaoImg3];
 
   const settings = {
     dots: false,

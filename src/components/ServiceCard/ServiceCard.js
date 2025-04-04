@@ -8,10 +8,6 @@ const ServiceCard = ({ image, title }) => {
       <S.CardImage src={image} alt={title} />
       <S.TitleIconSection>
         <S.CardTitle>{title}</S.CardTitle>
-
-        <S.IconWrapper>
-          <FaArrowRight color="#fff" size={16} />
-        </S.IconWrapper>
       </S.TitleIconSection>
     </S.CardContainer>
   );

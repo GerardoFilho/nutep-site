@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import FamiliaImg from "../assets/images/Medico-1.png";
 import OrganogramaImg from "../assets/images/Organograma.png";
@@ -157,6 +157,9 @@ const NextArrow = (props) => {
 };
 
 function OrganogramaPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const imagens = [EquipeImg1, EquipeImg2, EquipeImg3];
   const settings = {
     dots: false,

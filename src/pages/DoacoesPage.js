@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 import DoarImg from "../assets/images/Assistencia-1.png";
@@ -6,7 +6,6 @@ import NewsletterSection from "../components/NewsLetterSection";
 import DoacoesRapidasSection from "../components/DoacoesRapidasSection";
 import OutrasFormasDoar from "../components/OutrasFormasDoar";
 import CirclesBackground from "../components/CirclesBackground";
-import CirclesBackgroundMissao from "../components/CirclesBackgroundMissao";
 
 const HeroWrapper = styled.section`
   background: linear-gradient(
@@ -74,6 +73,9 @@ const HeroImage = styled.img`
 `;
 
 function DoacoesPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <CirclesBackground height={"1060px"} limitedCircles="true">

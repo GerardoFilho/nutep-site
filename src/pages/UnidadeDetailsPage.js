@@ -102,6 +102,10 @@ const UnidadeDetailsPage = () => {
     return <p>Unidade não encontrada.</p>;
   }
 
+  const handleTourClick = () => {
+    window.open(unidade.link, "_blank");
+  };
+
   return (
     <>
       <HeroImage
@@ -128,7 +132,9 @@ const UnidadeDetailsPage = () => {
             </ContactLine>
             <ContactLine>Telefone: {unidade.telefone}</ContactLine>
             <ContactLine>{unidade.endereco}</ContactLine>
-            <TourButton>Fazer tour virtual &gt;</TourButton>
+            <TourButton onClick={handleTourClick}>
+              Fazer tour virtual &gt;
+            </TourButton>
           </LocalInfo>
         </LocationWrapper>
 
