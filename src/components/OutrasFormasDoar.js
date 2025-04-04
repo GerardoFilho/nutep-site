@@ -3,9 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 // Exemplo de imagens (substitua pelos arquivos reais)
-import PixQR from "../assets/images/qrCodePix.png"; // Exemplo de QR code
+import PixQR from "../assets/images/QRCode.png"; // Exemplo de QR code
 import DepositoLogo from "../assets/images/BB.png"; // Exemplo de logo do banco
-import TelemarketingImg from "../assets/images/telemarketing.png"; // Exemplo de imagem telemarketing
 
 /* Contêiner geral da seção */
 const FormasWrapper = styled.section`
