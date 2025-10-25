@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import SobreImg from "../assets/images/sobrenos.png";
-import Video from "../assets/videos/nutepVideoReduzido.mp4";
-import VideoOrImageSection from "../components/VideoOrImageSection";
 import FamiliaImg1 from "../assets/images/vidanova1.png";
 import FamiliaImg2 from "../assets/images/vidanova2.png";
 import FamiliaImg3 from "../assets/images/vidanova3.png";
@@ -90,9 +88,9 @@ const ParagrafoConheca = styled.p`
 
 const VideoWrapper = styled.div`
   width: 100%;
-  max-width: 600px;
-  margin: 0 auto; /* centraliza */
-  aspect-ratio: 16 / 9; /* se quiser manter proporção de vídeo */
+  max-width: 800px; /* + espaço para legendas confortáveis */
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
   background: #ccc;
   border-radius: 8px;
   overflow: hidden;
@@ -123,12 +121,15 @@ const DivTranscricao = styled.div`
   border-radius: 16px;
 `;
 
-const LinkTranscricao = styled.a`
+const BotaoTranscricao = styled.button`
   display: inline-block;
   margin-top: 8px;
   font-size: 14px;
   color: #09aa64;
-  text-decoration: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   font-weight: 600;
 
   &:hover {
@@ -232,7 +233,7 @@ const CarouselWrapper = styled.div`
 
 const SlideCard = styled.div`
   padding: 10px;
-  display: flex !important; /* Para alinhar o conteúdo no slick-slide */
+  display: flex !important;
   justify-content: center;
 `;
 
@@ -275,6 +276,29 @@ function AboutPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const asset = (path) => {
+    const base = process.env?.PUBLIC_URL ?? "";
+    const prefix = base.endsWith("/") ? base : base + "/";
+    return `${prefix}${path.replace(/^\/+/, "")}`;
+  };
+
+  const [texto, setTexto] = useState("");
+  const [aberto, setAberto] = useState(false);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(null);
+
+  useEffect(() => {
+    fetch(asset("media/transcricao.txt"))
+      .then((r) => {
+        if (!r.ok) throw new Error("Falha ao carregar transcrição");
+        return r.text();
+      })
+      .then(setTexto)
+      .catch((e) => setErro(e.message))
+      .finally(() => setCarregando(false));
+  }, []);
+
   const images = [FamiliaImg1, FamiliaImg2, FamiliaImg3];
   const settings = {
     dots: false,
@@ -287,18 +311,15 @@ function AboutPage() {
     responsive: [
       {
         breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
+        settings: { slidesToShow: 1 },
       },
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
+        settings: { slidesToShow: 2 },
       },
     ],
   };
+
   return (
     <>
       <CirclesBackground height={"1060px"} limitedCircles={true}>
@@ -334,22 +355,63 @@ function AboutPage() {
         </ParagrafoConheca>
 
         <VideoWrapper>
-          <VideoOrImageSection mediaType="video" mediaSrc={Video} />
+          <video
+            controls
+            preload="metadata"
+            style={{ width: "100%", height: "100%" }}
+            aria-label="Vídeo institucional do Nutep com legendas em português"
+          >
+            <source src={asset("media/video.mp4")} type="video/mp4" />
+            <track
+              src={asset("media/legendas.vtt")}
+              kind="subtitles"
+              srcLang="pt"
+              label="Português"
+              default
+            />
+            Seu navegador não suporta o elemento <code>video</code>.
+          </video>
         </VideoWrapper>
 
         <Transcricao>
           <LabelTranscricao>Transcrição:</LabelTranscricao>
           <DivTranscricao>
-            <TextoTranscricao>
-              [BT - 1987] o Nutep vinha abrindo suas tendas solidárias para
-              promover ...
-            </TextoTranscricao>
+            {!aberto && (
+              <TextoTranscricao>
+                {carregando
+                  ? "Carregando transcrição…"
+                  : erro
+                  ? "Não foi possível carregar a transcrição."
+                  : resumo(texto)}
+              </TextoTranscricao>
+            )}
+
+            {aberto && !carregando && !erro && (
+              <div
+                id="conteudo-transcricao"
+                style={{
+                  marginTop: 8,
+                  whiteSpace: "pre-wrap",
+                  lineHeight: 1.6,
+                  color: "#333",
+                }}
+              >
+                {texto}
+              </div>
+            )}
+
+            <BotaoTranscricao
+              onClick={() => setAberto((v) => !v)}
+              aria-expanded={aberto}
+              aria-controls="conteudo-transcricao"
+              style={{ marginTop: 12 }}
+            >
+              {aberto ? "Ocultar transcrição ▲" : "Ler transcrição completa ▼"}
+            </BotaoTranscricao>
           </DivTranscricao>
-          <LinkTranscricao href="#">
-            Ler transcrição completa &gt;
-          </LinkTranscricao>
         </Transcricao>
       </ConhecaWrapper>
+
       <InformacoesWrapper>
         <InfoCard>
           <CardSection>
@@ -426,3 +488,8 @@ function AboutPage() {
 }
 
 export default AboutPage;
+
+function resumo(t, chars = 180) {
+  const clean = t.replace(/\s+/g, " ").trim();
+  return clean.length > chars ? clean.slice(0, chars) + "…" : clean;
+}

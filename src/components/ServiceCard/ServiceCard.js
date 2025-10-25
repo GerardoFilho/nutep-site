@@ -1,5 +1,4 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
 import * as S from "./ServiceCard.style";
 
 const ServiceCard = ({ image, title }) => {
