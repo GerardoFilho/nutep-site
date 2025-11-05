@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 
 import DoarImg from "../assets/images/Assistencia-1.png";
-import NewsletterSection from "../components/NewsLetterSection";
 import DoacoesRapidasSection from "../components/DoacoesRapidasSection";
 import OutrasFormasDoar from "../components/OutrasFormasDoar";
 import CirclesBackground from "../components/CirclesBackground";
@@ -95,7 +94,6 @@ function DoacoesPage() {
       </CirclesBackground>
       <DoacoesRapidasSection />
       <OutrasFormasDoar />
-      <NewsletterSection />
     </>
   );
 }
