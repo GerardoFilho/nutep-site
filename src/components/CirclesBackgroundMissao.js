@@ -1,17 +1,14 @@
-// src/components/CirclesBackgroundMissao.js
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { ReactComponent as CirclesSVG } from "../assets/icons/Circulosinteiros.svg";
 import useIsDesktop from "../hooks/useIsDesktop";
 
-/* Fundo gradiente */
 const BackgroundWrapper = styled.div`
   position: relative;
   height: ${(height) => height || "500px"};
   background: linear-gradient(135deg, #68ffc1, #07ed4c);
 `;
 
-/* Container geral para agrupar as réplicas do SVG */
 const SVGContainer = styled.div`
   position: absolute;
   top: 0;

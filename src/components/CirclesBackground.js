@@ -1,17 +1,14 @@
-// src/components/CirclesBackground.js
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { ReactComponent as CirclesSVG } from "../assets/icons/Circulosinteiros.svg";
 import useIsDesktop from "../hooks/useIsDesktop";
 
-/* Fundo gradiente */
 const BackgroundWrapper = styled.div`
   position: relative;
   height: ${(height) => height || "500px"};
   background: linear-gradient(135deg, #68ffc1, #07ed4c);
 `;
 
-/* Container geral para agrupar as réplicas do SVG */
 const SVGContainer = styled.div`
   position: absolute;
   top: 0;
@@ -22,7 +19,6 @@ const SVGContainer = styled.div`
   overflow: hidden;
 `;
 
-/* Cada “instância” do SVG com posição e tamanho */
 const CircleWrapper = styled.div`
   position: absolute;
   /* Recebe top, left e size via props */
@@ -57,10 +53,8 @@ function CirclesBackground({ children, height, limitedCircles }) {
           { top: "50%", left: "90%", size: 320 },
         ];
 
-  // Cria um array de refs para cada instância
   const circlesRefs = useRef([]);
 
-  // Inicializa o array de refs (um para cada item do circlesData)
   if (!circlesRefs.current.length) {
     circlesRefs.current = Array(circlesData.length)
       .fill()
@@ -69,10 +63,8 @@ function CirclesBackground({ children, height, limitedCircles }) {
 
   useEffect(() => {
     function handleScroll() {
-      // Exemplo: fator de escala suave
       const scale = window.scrollY / 1000 + 1;
 
-      // Aplica a cada círculo
       circlesRefs.current.forEach((ref) => {
         if (ref.current) {
           ref.current.style.transform = `scale(${

@@ -1,8 +1,6 @@
-// src/components/InfoSection.js
 import React from "react";
 import styled from "styled-components";
 
-// Exemplos de imagens (substitua pelos caminhos reais)
 import MapaBrasil from "../assets/images/Assistencia-1.png";
 import PredioAcademico from "../assets/images/Assistencia-1.png";
 
@@ -24,7 +22,6 @@ const SectionWrapper = styled.section`
   }
 `;
 
-/* Blocos de texto sem fundo */
 const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -44,7 +41,6 @@ const Paragraph = styled.p`
   line-height: 1.5;
 `;
 
-/* Bloco que contém texto + imagem (ou somente imagem) */
 const ImageWrapper = styled.div`
   margin-top: 16px;
 
@@ -54,7 +50,6 @@ const ImageWrapper = styled.div`
   }
 `;
 
-/* Se quiser estilizar cada bloco para ficar visualmente igual ao design */
 const ValoresBlock = styled(TextBlock)`
   /* Este é o “NOSSOS VALORES” (1a linha, col 1) */
 `;
@@ -79,11 +74,9 @@ const PredioImageWrapper = styled.div`
   }
 `;
 
-// Componente principal
 function InfoSection() {
   return (
     <SectionWrapper>
-      {/* 1) NOSSOS VALORES (linha 1, col 1) */}
       <ValoresBlock>
         <Title>Nossos Valores</Title>
         <Paragraph>
@@ -93,7 +86,6 @@ function InfoSection() {
         </Paragraph>
       </ValoresBlock>
 
-      {/* 2) ONDE ESTAMOS (linha 1, col 2) */}
       <OndeBlock>
         <Title>Onde Estamos</Title>
         <Paragraph>
@@ -112,7 +104,6 @@ function InfoSection() {
         </ImageWrapper>
       </OndeBlock>
 
-      {/* 3) PROGRAMAS ACADÊMICOS (linha 2, col 1) */}
       <ProgramasBlock style={{ gridColumn: "1 / 2" }}>
         <Title>Programas Acadêmicos</Title>
         <Paragraph>
@@ -125,7 +116,6 @@ function InfoSection() {
         </Paragraph>
       </ProgramasBlock>
 
-      {/* Imagem do prédio (linha 2, col 2) */}
       <PredioImageWrapper style={{ gridColumn: "2 / 3" }}>
         <img src={PredioAcademico} alt="Prédio Acadêmico" />
       </PredioImageWrapper>

@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import styled from "styled-components";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-// Importando as imagens dos slides (substitua pelos caminhos reais)
 import Banner1 from "../assets/images/banner1.png";
 import Banner2 from "../assets/images/banner2.png";
 import Banner3 from "../assets/images/banner3.png";
@@ -21,7 +20,6 @@ const CarouselWrapper = styled.section`
     cover;
 `;
 
-/* Componente original SlideContent, agora com um estilo extra para a imagem interna */
 const Image = styled.img`
   cursor: pointer;
 `;

@@ -7,7 +7,6 @@ import WppImg from "../assets/images/wppPerfil2.png";
 import WppImg2 from "../assets/images/wppPerfil.png";
 import WppImg3 from "../assets/images/wppPerfil3.png";
 import WppImg4 from "../assets/images/wppPerfil4.png";
-import CirclesBackground from "./CirclesBackground";
 import CirclesBackgroundMissao from "./CirclesBackgroundMissao";
 
 const WppImages = [WppImg, WppImg2, WppImg3, WppImg4];
@@ -153,7 +152,7 @@ const DepoimentosSection = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4, // Exibe 3 depoimentos por vez em desktop
+    slidesToShow: 4,
     slidesToScroll: 1,
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
