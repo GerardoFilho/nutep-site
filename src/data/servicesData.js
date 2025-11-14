@@ -27,13 +27,13 @@ export const medicalServices = [
   {
     id: 2,
     title: "Ortopedia",
-    image: Medico2,
+    image: Medico3,
     description: "Descrição do serviço de Ortopedia.",
   },
   {
     id: 3,
     title: "Oftamologia",
-    image: Medico3,
+    image: Medico2,
     description: "Descrição do serviço de Oftamologia.",
   },
   {
